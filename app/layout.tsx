@@ -8,6 +8,26 @@ import { DM_Sans } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { Archivo_Black } from "next/font/google";
 
+const lato = Lato ({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+});
+
+const dmSans = DM_Sans ({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+});
+
+const poppins = Poppins ({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+const archivoBlack = Archivo_Black ({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
 
 export default function RootLayout({
   children,
