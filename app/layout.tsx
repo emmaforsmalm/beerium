@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import Link from "next/link";
+
+import { Lato } from "next/font/google";
+import { DM_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { Archivo_Black } from "next/font/google";
 
 
 export default function RootLayout({
