@@ -35,9 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv">
+    <html lang="sv" className={`${lato.className}, ${dmSans.className}, ${poppins.className}, ${archivoBlack.className}`}>
       <body className="min-h-full flex flex-col">
       <nav>
+        <img className="logo" src="/Beerium_Logga_vit_svartBG.png" alt="Beeriums logga"></img>
         <Link href="/">Hem</Link>
         <Link href="/sortiment">Vårt sortiment</Link>
         <Link href="/kalender">Kalender</Link>
