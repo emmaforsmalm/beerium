@@ -111,3 +111,38 @@ export interface Medlem {
     };
 }
 
+//Struktur för ett event-post
+export interface Event {
+    id: number;
+    slug: string;
+    content: {
+        rendered: string;
+    };
+    excerpt: {
+        rendered: string;
+    };
+    acf: {
+        event_datum: string;
+        event_plats: string;
+        event_titel: string;
+        event_info: string;
+    };
+}
+
+//Struktur för ett produkt-post
+export interface Produkt {
+    id: number;
+    slug: string;
+    content: {
+        rendered: string;
+    };
+    excerpt: {
+        rendered: string;
+    };
+    acf: {
+        produkt_titel: string;
+        produkt_kategori: string;
+        produkt_info: string;
+    };
+}
+
