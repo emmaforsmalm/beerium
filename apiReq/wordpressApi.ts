@@ -5,7 +5,7 @@ import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender } fr
 const API_URL = process.env.WORDPRESS_API_URL;
 
 //Funktion för att hämta in en sida
-export const getStartPage = async (): Promise<Startsida[]> => {
+export const getStartPage = async (): Promise<Startsida> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=startsida`);
 
