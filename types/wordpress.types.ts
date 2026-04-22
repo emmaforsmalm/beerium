@@ -1,4 +1,4 @@
-//Struktur för en startsida
+//Struktur för startsidan
 export interface Startsida {
     id: number;
     slug: string;
@@ -21,5 +21,28 @@ export interface Startsida {
         kraftolskamrat_tagline: string;
         kraftolskamrat_lanktext: string;
         omoss_bild: string;
+    };
+}
+
+//Struktur för sortimentsidan
+export interface Sortiment {
+    id: number;
+    slug: string;
+    title: {
+        rendered: string;
+    };
+    content: {
+        rendered: string;
+    };
+    excerpt: {
+        rendered: string;
+    };
+    acf: {
+        sidtitel: string;
+        sid_tagline: string;
+        sortiment_titel: string;
+        systembolaget_bild: string;
+        krog_titel: string;
+        kontakt_info: string;
     };
 }
