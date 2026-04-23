@@ -15,6 +15,7 @@ export interface Startsida {
         sidtitel: string;
         sid_tagline: string;
         header_bild: number;
+        header_bild_beskrivning: string;
         om_oss_titel: string;
         om_oss_text: string;
         nasta_event_titel: string;
@@ -22,6 +23,7 @@ export interface Startsida {
         kraftolskamrat_tagline: string;
         kraftolskamrat_lanktext: string;
         omoss_bild: number;
+        omoss_bild_beskrivning: string;
     };
 }
 
@@ -42,8 +44,10 @@ export interface Sortiment {
         sidtitel: string;
         sid_tagline: string;
         header_bild: number;
+        header_bild_beskrivning: string;
         sortiment_titel: string;
         systembolaget_bild: number;
+        systembolaget_bild_beskrivning: string;
         krog_titel: string;
         kontakt_info: string;
     };
@@ -65,7 +69,20 @@ export interface Kalender {
     acf: {
         kalender_titel: string;
         header_bild: number;
+        header_bild_beskrivning: string;
         bild_titel: string;
+        event_bild_ett: number; 
+        event_bild_ett_beskrivning: string;
+        event_bild_tva: number; 
+        event_bild_tva_beskrivning: string;
+        event_bild_tre: number; 
+        event_bild_tre_beskrivning: string;
+        event_bild_fyra: number; 
+        event_bild_fyra_beskrivning: string;
+        event_bild_fem: number; 
+        event_bild_fem_beskrivning: string;
+        event_bild_sex: number; 
+        event_bild_sex_beskrivning: string;
     };
 }
 
@@ -85,6 +102,7 @@ export interface OmOss {
     acf: {
         om_oss_titel: string;
         header_bild: number;
+        header_bild_beskrivning: string;
         om_oss_text: string;
         kontakt_titel: string;
         kontakt_text: string;
@@ -112,6 +130,7 @@ export interface Medlem {
         medlem_sidtitel: string;
         medlem_tagline: string;
         header_bild: number;
+        header_bild_beskrivning: string;
         medlem_text: string;
     };
 }
@@ -149,7 +168,9 @@ export interface Produkt {
         produkt_kategori: string;
         produkt_info: string;
         produkt_bild: number;
+        produkt_bild_beskrivning: string;
     };
 }
+
 
 
