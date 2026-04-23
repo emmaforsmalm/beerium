@@ -14,6 +14,7 @@ export interface Startsida {
     acf: {
         sidtitel: string;
         sid_tagline: string;
+        header_bild: number;
         om_oss_titel: string;
         om_oss_text: string;
         nasta_event_titel: string;
@@ -40,8 +41,9 @@ export interface Sortiment {
     acf: {
         sidtitel: string;
         sid_tagline: string;
+        header_bild: number;
         sortiment_titel: string;
-        systembolaget_bild: string;
+        systembolaget_bild: number;
         krog_titel: string;
         kontakt_info: string;
     };
@@ -62,6 +64,7 @@ export interface Kalender {
     };
     acf: {
         kalender_titel: string;
+        header_bild: number;
         bild_titel: string;
     };
 }
@@ -81,6 +84,7 @@ export interface OmOss {
     };
     acf: {
         om_oss_titel: string;
+        header_bild: number;
         om_oss_text: string;
         kontakt_titel: string;
         kontakt_text: string;
@@ -107,6 +111,7 @@ export interface Medlem {
     acf: {
         medlem_sidtitel: string;
         medlem_tagline: string;
+        header_bild: number;
         medlem_text: string;
     };
 }
@@ -143,6 +148,7 @@ export interface Produkt {
         produkt_titel: string;
         produkt_kategori: string;
         produkt_info: string;
+        produkt_bild: number;
     };
 }
 
