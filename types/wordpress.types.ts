@@ -20,7 +20,7 @@ export interface Startsida {
         senaste_produkter_titel: string;
         kraftolskamrat_tagline: string;
         kraftolskamrat_lanktext: string;
-        omoss_bild: string;
+        omoss_bild: number;
     };
 }
 
@@ -145,4 +145,5 @@ export interface Produkt {
         produkt_info: string;
     };
 }
+
 
