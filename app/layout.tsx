@@ -8,17 +8,20 @@ import localFont from 'next/font/local';
 
 const azoSans = localFont({
   src: './fonts/azosansbold.woff2',
+  variable: '--font-azo-sans',
 })
 
 
 const poppins = Poppins ({
   subsets: ['latin'],
   weight: ['400'],
+  variable: '--font-poppins',
 });
 
 const comforterBrush = Comforter_Brush ({
   subsets: ['latin'],
   weight: ['400'],
+  variable: '--font-comforter-brush'
 });
 
 export default function RootLayout({
@@ -27,10 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${poppins.className}, ${azoSans.className}, ${comforterBrush.className}`}>
+    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable}`}>
       <body className="min-h-full flex flex-col">
       <nav>
-        <img className="logo" src="/Beerium_Logga_vit_svartBG.png" alt="Beeriums logga"></img>
+        <img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img>
         <Link href="/">Hem</Link>
         <Link href="/sortiment">Vårt sortiment</Link>
         <Link href="/kalender">Kalender</Link>

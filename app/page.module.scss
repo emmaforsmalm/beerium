@@ -3,9 +3,29 @@ $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
 
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+
 .header {
     position: relative;
     width: 100%;
+    text-align: center;
+    line-height: 0px;
+
+    h1 {
+        font-family: $azoSans;
+        color: $main-beige;
+        font-size: 550%;
+    }
+
+    p {
+        font-family: $comforterBrush;
+        color: $main-orange;
+        margin-top: -7px;
+        font-size: 450%;
+    }
+
 }
 
 .startHeader {
@@ -18,4 +38,8 @@ $main-orange: #F05A22;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+body {
+    background-color: $main-grey;
 }
