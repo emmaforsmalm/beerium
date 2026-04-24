@@ -3,31 +3,18 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import Link from "next/link";
 
-import { Lato } from "next/font/google";
-import { DM_Sans } from "next/font/google";
 import { Poppins } from "next/font/google";
-import { Archivo_Black } from "next/font/google";
+import localFont from 'next/font/local';
 
-const lato = Lato ({
-  subsets: ['latin'],
-  weight: ['700', '900'],
-});
+const azoSans = localFont({
+  src: './azosansbold.woff2',
+})
 
-const dmSans = DM_Sans ({
-  subsets: ['latin'],
-  weight: ['700', '900'],
-});
 
 const poppins = Poppins ({
   subsets: ['latin'],
   weight: ['400'],
 });
-
-const archivoBlack = Archivo_Black ({
-  subsets: ['latin'],
-  weight: ['400'],
-});
-
 
 export default function RootLayout({
   children,
@@ -35,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${lato.className}, ${dmSans.className}, ${poppins.className}, ${archivoBlack.className}`}>
+    <html lang="sv" className={`${poppins.className}, ${azoSans.className}`}>
       <body className="min-h-full flex flex-col">
       <nav>
         <img className="logo" src="/Beerium_Logga_vit_svartBG.png" alt="Beeriums logga"></img>
