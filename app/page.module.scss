@@ -7,6 +7,7 @@ $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 
+//Design av header
 .header {
     position: relative;
     width: 100%;
@@ -40,6 +41,5 @@ $azoSans: var(--font-azo-sans);
     transform: translate(-50%, -50%);
 }
 
-body {
-    background-color: $main-grey;
-}
+//Design av om oss-sektion på startsidan
+

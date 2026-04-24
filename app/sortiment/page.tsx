@@ -1,3 +1,6 @@
+//Importera funktion för att läsa in sortimentsidan från wordpress
+import { getMedia } from "@/apiReq/wordpressApi";
+
 export default function Sortiment() {
   return (
     <div>

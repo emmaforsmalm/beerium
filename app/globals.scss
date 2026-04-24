@@ -3,7 +3,7 @@ $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
 
-$poppins: "poppins";
+$poppins: var(--font-poppins);
 
 nav {
     background-color: $main-grey;
@@ -33,4 +33,8 @@ nav {
             color: $main-grey;
         }
     }
+}
+
+body {
+    background-color: $main-grey;
 }
