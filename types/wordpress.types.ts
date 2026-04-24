@@ -131,6 +131,7 @@ export interface Medlem {
         medlem_tagline: string;
         header_bild: number;
         header_bild_beskrivning: string;
+        medlem_text_titel: string;
         medlem_text: string;
     };
 }

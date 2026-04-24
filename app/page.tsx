@@ -10,11 +10,7 @@ export default async function Home() {
 
   const page = await getStartPage();
 
-  let imgUrlHeader = "breweryb&w.jpg";
-
-  if (page.acf.header_bild) {
-      imgUrlHeader = await getMedia(page.acf.header_bild);
-  }
+  const imgUrlHeader = await getMedia(page.acf.header_bild);
 
 
   return (
