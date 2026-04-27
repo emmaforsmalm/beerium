@@ -18,9 +18,9 @@ export default async function Member() {
         <p>{page.acf.medlem_tagline}</p>          
         </div>
 
-        <div>
+        <div className={styles.memberDiv}>
           <h2>{page.acf.medlem_text_titel}</h2>
-          <p className="testText">{page.acf.medlem_text}</p>
+          <p className={styles.memberText}>{page.acf.medlem_text}</p>
         </div>
 
       </main>

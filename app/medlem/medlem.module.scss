@@ -13,4 +13,35 @@ $second-heading: var(--font-outfit);
     img {
         width: 100%;
     }
+
+    h1 {
+        color: $main-beige;
+        font-family: $second-heading;
+        text-align: center;
+        font-size: 300%;
+    }
+
+    p {
+        color: $main-orange;
+        font-family: $comforterBrush;
+        font-size: 270%;
+        text-align: center;
+        margin-top: -50px;
+    }
+}
+
+.memberDiv {
+        width: 70%;
+        margin: 0 auto;
+    h2 {
+        color: $main-beige;
+        font-family: $second-heading;
+    }
+
+    p {
+        white-space: pre-line;
+        color: $main-beige;
+        font-family: $poppins;
+
+    }
 }
