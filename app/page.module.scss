@@ -2,10 +2,13 @@
 $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
+$main-brown: #723C14;
 
 $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
+$second-heading: var(--font-playfair-display);
+
 
 //Design av header
 .header {
@@ -42,4 +45,134 @@ $azoSans: var(--font-azo-sans);
 }
 
 //Design av om oss-sektion på startsidan
+.aboutDiv {
+    background-color: $main-beige;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 80%;
+    border-radius: 20px;
+
+    .aboutImg {
+        padding: 30px;        
+    }
+
+    img {
+        width: 200px;
+        height: 100%;
+        transform: rotate(-6deg);
+    }
+
+    .imgBorder {
+        border: 2px solid $main-brown;
+        transform: rotate(6deg);
+    }
+
+    h2 {
+        color: $main-brown;
+        font-family: $second-heading;
+            letter-spacing: 0.03em;
+    }
+
+    p {
+        font-family: $poppins;
+        font-size: 90%;
+    }
+
+    .aboutContent {
+        padding: 10px;
+    }
+
+    .aboutLink {
+        color: $main-brown;
+        text-decoration: none;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding: 5px;
+        border: 1.5px solid $main-brown;
+        width: 50%;
+        border-radius: 10px;
+        font-family: $poppins;
+        font-size: 80%;
+        margin-bottom: 40px;
+
+        &:hover {
+            background-color: $main-brown;
+            color: $main-beige;
+        }
+    }
+}
+
+//Design för kalendersektion på startsidan
+.eventDiv {
+    h2 {
+    color: $main-beige;
+    text-align: center;
+    font-family: $second-heading;
+    font-size: 180%;
+    letter-spacing: 0.05em;         
+    }
+     
+    .calendarLink {
+        color: $main-beige;
+        border: 1.5px solid $main-beige;
+        padding: 7px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-family: $poppins;
+        font-size: 80%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        width: 18%;
+    }
+}
+
+//Design av produktsektion på startsidan
+.productDiv {
+    h2 {
+    color: $main-beige;
+    text-align: center;
+    font-family: $second-heading;
+    font-size: 180%;
+    letter-spacing: 0.05em;         
+    }
+     
+    .productsLink {
+        color: $main-beige;
+        border: 1.5px solid $main-beige;
+        padding: 7px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-family: $poppins;
+        font-size: 80%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        width: 18%;
+    }  
+}
+
+.memberDiv {
+    h2 {
+    color: $main-beige;
+    text-align: center;
+    font-family: $second-heading;
+    font-size: 230%;         
+    }
+
+    .memberLink {
+        font-family: $comforterBrush;
+        color: $main-orange;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+        font-size: 270%;
+        margin-top: -50px;
+    }
+}
+
 

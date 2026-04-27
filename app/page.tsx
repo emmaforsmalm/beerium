@@ -11,6 +11,7 @@ export default async function Home() {
   const page = await getStartPage();
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
+  const imgUrlAbout = await getMedia(page.acf.omoss_bild);
 
 
   return (
@@ -25,22 +26,32 @@ export default async function Home() {
         </div>
 
         <div className={styles.aboutDiv}>
-          <h2>{page.acf.om_oss_titel}</h2>
-          <p>{page.acf.om_oss_text}</p>
+          <div className={styles.aboutImg}>
+            <div className={styles.imgBorder}>
+            <img src={imgUrlAbout} alt={page.acf.omoss_bild_beskrivning}></img>
+          </div>
+          </div>
+          <div className={styles.aboutContent}>
+            <h2>{page.acf.om_oss_titel}</h2>
+            <p>{page.acf.om_oss_text}</p>   
+            <Link className={styles.aboutLink} href="/sortiment">Läs mer om oss</Link>         
+          </div>
+
         </div>
 
         <div className={styles.eventDiv}>
           <h2>{page.acf.nasta_event_titel}</h2>
+          <Link className={styles.calendarLink} href="/kalender">Se vår kalender</Link>
         </div>
 
         <div className={styles.productDiv}>
           <h2>{page.acf.senaste_produkter_titel}</h2>
-          <Link href="/sortiment">Vårt sortiment</Link>
+          <Link className={styles.productsLink} href="/sortiment">Vårt sortiment</Link>
         </div>
 
         <div className={styles.memberDiv}>
           <h2>{page.acf.kraftolskamrat_tagline}</h2>
-          <Link href="/medlem">{page.acf.kraftolskamrat_lanktext}</Link>
+          <Link className={styles.memberLink} href="/medlem">{page.acf.kraftolskamrat_lanktext}</Link>
         </div>
 
       </main>

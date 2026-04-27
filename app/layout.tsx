@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
 import Link from "next/link";
 
-import { Poppins, Comforter_Brush } from "next/font/google";
+import { Poppins, Comforter_Brush, Playfair_Display, Outfit} from "next/font/google";
 import localFont from 'next/font/local';
 
 const azoSans = localFont({
@@ -24,13 +23,20 @@ const comforterBrush = Comforter_Brush ({
   variable: '--font-comforter-brush'
 });
 
+const playfairDisplay =  Outfit ({
+  subsets: ['latin'],
+  weight: ['800'],
+  variable: '--font-playfair-display'
+});
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable}`}>
+    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${playfairDisplay.variable}`}>
       <body className="min-h-full flex flex-col">
       <nav>
         <img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img>
