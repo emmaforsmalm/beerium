@@ -18,7 +18,7 @@ export default async function About() {
           <p>{page.acf.om_oss_text}</p>
         </div>
 
-        <div>
+        <div className={styles.contact}>
           <h2>{page.acf.kontakt_titel}</h2>
           <p>{page.acf.kontakt_text}</p>
 
