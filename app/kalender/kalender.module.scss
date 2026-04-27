@@ -7,10 +7,42 @@ $main-brown: #723C14;
 $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
-$second-heading: var(--font-playfair-display);
+$second-heading: var(--font-outfit);
 
 .header {
     img {
         width: 100%;
     }
+
+    h1 {
+        color: $main-beige;
+        font-family: $second-heading;
+        text-align: center;
+        font-size: 300%;
+    }
+}
+
+.highlights {
+    h2 {
+        color: $main-beige;
+        font-family: $second-heading;
+        text-align: center;
+        font-size: 150%;        
+    }
+
+    .highlightsImg {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: fit-content;
+        margin: 0 auto;
+
+        img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid $main-beige;
+        }
+    }
+
 }

@@ -24,9 +24,9 @@ export default async function Home() {
         <h1>{page.acf.kalender_titel}</h1>          
         </div>
 
-        <div>
+        <div className={styles.highlights}>
           <h2>{page.acf.bild_titel}</h2>
-          <div>
+          <div className={styles.highlightsImg}>
             <img src={imgUrlEventOne} alt={page.acf.event_bild_ett_beskrivning}></img>
             <img src={imgUrlEventTwo} alt={page.acf.event_bild_tva_beskrivning}></img>
             <img src={imgUrlEventThree} alt={page.acf.event_bild_tre_beskrivning}></img>
