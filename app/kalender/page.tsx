@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <div>
       <main>
-        <div>
+        <div className={styles.header}>
         <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
         <h1>{page.acf.kalender_titel}</h1>          
         </div>

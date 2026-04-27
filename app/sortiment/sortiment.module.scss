@@ -1,0 +1,66 @@
+
+$main-grey: #292929;
+$main-beige: #F1E9DC;
+$main-orange: #F05A22;
+$main-brown: #723C14;
+
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+$second-heading: var(--font-outfit);
+
+.header {
+    img {
+        width: 100%;
+    }
+
+    h1 {
+        color: $main-beige;
+        font-family: $second-heading;
+        text-align: center;
+        font-size: 300%;
+    }
+
+    p {
+        color: $main-orange;
+        text-align: center;
+        font-family: $comforterBrush;
+        font-size: 300%;
+        margin-top: -50px;
+    }
+}
+
+.systembolagetDiv {
+    h2 {
+        font-family: $second-heading;
+        color: $main-beige;
+        text-align: center;
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .systembolagetLink img {
+        display: block;
+        margin: 0 auto;
+        width: 40%;
+        margin-top: 3%;
+    }
+}
+
+.krogDiv {
+    h2 {
+        font-family: $second-heading;
+        color: $main-beige;
+        text-align: center;
+        font-size: 130%;
+        margin-top: 10%;       
+    }
+
+    p {
+        font-family: $poppins;
+        color: $main-orange;
+        text-align: center;
+        margin-top: -13px;
+    }
+}

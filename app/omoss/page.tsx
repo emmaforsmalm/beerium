@@ -12,7 +12,7 @@ export default async function About() {
   return (
     <div>
       <main>
-        <div>
+        <div className={styles.header}>
           <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
           <h1>{page.acf.om_oss_titel}</h1>
           <p>{page.acf.om_oss_text}</p>

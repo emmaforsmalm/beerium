@@ -12,7 +12,7 @@ export default async function Member() {
   return (
     <div>
       <main>
-        <div>
+        <div className={styles.header}>
           <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
         <h1>{page.acf.medlem_sidtitel}</h1>
         <p>{page.acf.medlem_tagline}</p>          

@@ -23,10 +23,10 @@ const comforterBrush = Comforter_Brush ({
   variable: '--font-comforter-brush'
 });
 
-const playfairDisplay =  Outfit ({
+const outfit =  Outfit ({
   subsets: ['latin'],
   weight: ['800'],
-  variable: '--font-playfair-display'
+  variable: '--font-outfit'
 });
 
 
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${playfairDisplay.variable}`}>
+    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable}`}>
       <body className="min-h-full flex flex-col">
       <nav>
         <img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img>

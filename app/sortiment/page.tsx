@@ -14,18 +14,18 @@ export default async function Sortiment() {
   return (
     <div>
       <main>
-        <div>
+        <div className={styles.header}>
           <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>          
         </div>
 
-        <div>
+        <div className={styles.systembolagetDiv}>
           <h2>{page.acf.sortiment_titel}</h2>
-          <img src={imgUrlSystembolaget} alt={page.acf.systembolaget_bild_beskrivning}></img>
+          <a className={styles.systembolagetLink} href="https://www.systembolaget.se/sortiment/?q=beerium"><img src={imgUrlSystembolaget} alt={page.acf.systembolaget_bild_beskrivning}></img></a>
         </div>
 
-        <div>
+        <div className={styles.krogDiv}>
           <h2>{page.acf.krog_titel}</h2>
           <p>{page.acf.kontakt_info}</p>
         </div>
