@@ -36,9 +36,9 @@ $second-heading: var(--font-outfit);
     border: 2px solid $main-beige;
     border-radius: 10px;
     width: 60%;
+    color: $main-beige;
     margin: 0 auto;
     text-align: center;
-    color: $main-beige;
     font-family: $poppins;
     font-size: 80%;
     margin-bottom: 50px;
@@ -48,5 +48,61 @@ $second-heading: var(--font-outfit);
         margin-top: -20px;
     }
 
+    .contactForm {
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;    
+    border-bottom: 2px solid $main-beige;
+    padding-bottom: 30px;
+    
+    label {
+        display: block;
+        text-align: left;
+        color: $main-beige;
+        font-family: $poppins;
+        font-size: 115%;
+        margin-bottom: -15px;
+        margin-top: 15px;
+    }
+     input {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: $main-beige;
+        width: 90%;
+        border: none;
+        border-radius: 10px;
+        color: black;
+        font-family: $poppins;
+     }
+
+     input[type=submit] {
+        width: 30%;
+        background-color: $main-grey;
+        border: 2px solid $main-beige;
+        color: $main-beige;
+        padding: 7px;
+        font-family: $poppins;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+
+        &:hover {
+            background-color: $main-beige;
+            color: black;
+            cursor: pointer;
+        }
+     }
+
+     textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: $main-beige;
+        width: 90%;
+        border: none;
+        border-radius: 10px;
+        color: black;
+        font-family: $poppins;
+     }
+    }
 
 }

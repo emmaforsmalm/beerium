@@ -23,8 +23,13 @@ export default async function About() {
         </div>
 
         <div className={styles.contact}>
+          <div className={styles.contactDivContent}>
           <h2>{page.acf.kontakt_titel}</h2>
           <p>{page.acf.kontakt_text}</p>
+
+        <div className={styles.contactForm}>
+          <ContactForm/>
+        </div>
 
           <h3>{page.acf.adress_titel}</h3>
           <p>{page.acf.adress_text}</p>
@@ -32,22 +37,8 @@ export default async function About() {
           <h3>{page.acf.epost_titel}</h3>
           <p>{page.acf.email_text}</p>
         </div>
-
-        <div>
-          <ContactForm/>
         </div>
 
-        <div>
-          <p> Hej Hej <br/>
-          Hej Hej <br/>
-          Hej Hej <br/> </p>
-          Hej Hej <br/>
-          Hej Hej <br/>
-          Hej Hej <br/>
-          Hej Hej <br/>
-          Hej Hej <br/>
-          
-        </div>
 
       </main>
     </div>
