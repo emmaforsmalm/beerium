@@ -1,5 +1,6 @@
 'use client'
 
+import './contactform.scss';
 import { useState } from "react";
 import { sendContactForm } from "@/apiReq/wordpressApi";
 
@@ -23,10 +24,17 @@ export default function ContactForm () {
             await sendContactForm(name, email, subject, message);
             setConfirmation(true);
             setLoading(false);
+
+            //Rensa formulär
+            setName("");
+            setEmail("");
+            setSubject("");
+            setMessage("");
         }catch(err) {
             setError(true)
             setLoading(false);
         }
+
 
     }
 
@@ -48,9 +56,19 @@ export default function ContactForm () {
 
             <input type="submit" value="Skicka"></input>
 
-            {loading && (
-                <p>Laddar...</p>
+            <div className="messageDiv">
+            {confirmation && (
+                <p className="contactFormConfirmation">Ditt meddelande har skickats!</p>
             )}
+
+            {error && (
+                <p className="contactFormError">Något gick tyvärr fel, försök igen...</p>
+            )}
+
+            {loading && (
+                <p className="contactFormLoading">Laddar...</p>
+            )}
+            </div>
           </form>
 
         </div>
