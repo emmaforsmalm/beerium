@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { sendContactForm } from "@/apiReq/wordpressApi";
 
-export default function contactForm () {
+export default function ContactForm () {
 
     //States definierade för kontaktformulär
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [subject, setSubject] = useState("");
     const [loading, setLoading] = useState(false);
     const [confirmation, setConfirmation] = useState(false);
     const [error, setError] = useState(false);
@@ -19,7 +20,7 @@ export default function contactForm () {
         setLoading(true);
 
         try {
-            await sendContactForm(name, email, message);
+            await sendContactForm(name, email, subject, message);
             setConfirmation(true);
             setLoading(false);
         }catch(err) {
@@ -39,8 +40,11 @@ export default function contactForm () {
             <label htmlFor="email">E-post:</label><br/>
             <input type="email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)}></input><br/>
 
+            <label htmlFor="subject">Ämne:</label><br/>
+            <input type="text" id="subject" required value={subject} onChange={(e) => setSubject(e.target.value)}></input><br/>
+
             <label htmlFor="message">Meddelande:</label><br/>
-            <input type="textarea" id="message" required value={message} onChange={(e) => setMessage(e.target.value)}></input><br/>
+            <textarea id="message" required value={message} onChange={(e) => setMessage(e.target.value)}></textarea><br/>
 
             <input type="submit" value="Skicka"></input>
 

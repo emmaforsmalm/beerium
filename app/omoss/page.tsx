@@ -3,6 +3,9 @@ import { getAboutPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./omoss.module.scss";
 
+//Importera kontaktformulärs-komponent
+import ContactForm from "@/components/ContactForm";
+
 
 export default async function About() {
 
@@ -28,6 +31,22 @@ export default async function About() {
 
           <h3>{page.acf.epost_titel}</h3>
           <p>{page.acf.email_text}</p>
+        </div>
+
+        <div>
+          <ContactForm/>
+        </div>
+
+        <div>
+          <p> Hej Hej <br/>
+          Hej Hej <br/>
+          Hej Hej <br/> </p>
+          Hej Hej <br/>
+          Hej Hej <br/>
+          Hej Hej <br/>
+          Hej Hej <br/>
+          Hej Hej <br/>
+          
         </div>
 
       </main>

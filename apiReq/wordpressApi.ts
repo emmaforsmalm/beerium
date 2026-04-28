@@ -3,7 +3,7 @@ import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender } fr
 
 //Hämta in URL för api
 const API_URL = process.env.WORDPRESS_API_URL;
-const FORM_URL = process.env.CONTACT_WP_URL;
+const FORM_URL = process.env.NEXT_PUBLIC_WP_URL;
 
 //Funktion för att hämta in startsidan
 export const getStartPage = async (): Promise<Startsida> => {
@@ -91,21 +91,26 @@ export const getMedia = async (id: number): Promise<string> => {
 }
 
 //Funktion för att hämta in kontaktformulär 
-export const sendContactForm = async (name: string, email: string, message: string) => {
+export const sendContactForm = async (name: string, email: string, subject: string, message: string) => {
   
+  console.log('Form url:', FORM_URL);
+  console.log('full url:', `${FORM_URL}/6/feedback`);
+
   const formData = new FormData();
   formData.append('your-name', name);
   formData.append('your-email', email);
+  formData.append('your-subject', subject);
   formData.append('your-message', message);
-  formData.append('_wpcf7', '2652466');
-  formData.append('_wpcf7_unit_tag', 'wpcf7-f2652466-p1-o1');
+  formData.append('_wpcf7', '6');
+  formData.append('_wpcf7_unit_tag', 'wpcf7-f6-p1-o1');
 
-  const resp = await fetch(`${FORM_URL}/2652466/feedback`, {
+  const resp = await fetch(`${FORM_URL}/6/feedback`, {
     method: 'POST',
     body: formData
   });
 
   const data = await resp.json();
+  console.log("data:", data);
 
   if (data.status !== 'mail_sent') {
     throw new Error(data.message || 'Något gick fel');
