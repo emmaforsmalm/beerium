@@ -3,6 +3,7 @@ import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender } fr
 
 //Hämta in URL för api
 const API_URL = process.env.WORDPRESS_API_URL;
+const FORM_URL = process.env.CONTACT_WP_URL;
 
 //Funktion för att hämta in startsidan
 export const getStartPage = async (): Promise<Startsida> => {
@@ -87,4 +88,28 @@ export const getMedia = async (id: number): Promise<string> => {
       return data.source_url;
     }
 
+}
+
+//Funktion för att hämta in kontaktformulär 
+export const sendContactForm = async (name: string, email: string, message: string) => {
+  
+  const formData = new FormData();
+  formData.append('your-name', name);
+  formData.append('your-email', email);
+  formData.append('your-message', message);
+  formData.append('_wpcf7', '2652466');
+  formData.append('_wpcf7_unit_tag', 'wpcf7-f2652466-p1-o1');
+
+  const resp = await fetch(`${FORM_URL}/2652466/feedback`, {
+    method: 'POST',
+    body: formData
+  });
+
+  const data = await resp.json();
+
+  if (data.status !== 'mail_sent') {
+    throw new Error(data.message || 'Något gick fel');
+  }
+
+  return data; 
 }

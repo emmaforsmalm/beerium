@@ -39,12 +39,12 @@ export default function RootLayout({
     <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable}`}>
       <body className="min-h-full flex flex-col">
       <nav>
-        <img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img>
-        <Link href="/">Hem</Link>
-        <Link href="/sortiment">Vårt sortiment</Link>
-        <Link href="/kalender">Kalender</Link>
-        <Link href="/omoss">Om oss</Link>
-        <Link href="/medlem">Medlem</Link>
+        <Link href="/"><img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img></Link>
+        <Link className="navMenuLink" href="/">Hem</Link>
+        <Link className="navMenuLink" href="/sortiment">Vårt sortiment</Link>
+        <Link className="navMenuLink" href="/kalender">Kalender</Link>
+        <Link className="navMenuLink" href="/omoss">Om oss</Link>
+        <Link className="navMenuLink" href="/medlem">Medlem</Link>
       </nav>  
         {children}
       </body>

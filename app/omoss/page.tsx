@@ -3,6 +3,7 @@ import { getAboutPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./omoss.module.scss";
 
+
 export default async function About() {
 
   const page = await getAboutPage();
