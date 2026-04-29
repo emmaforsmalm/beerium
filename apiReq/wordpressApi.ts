@@ -118,3 +118,31 @@ export const sendContactForm = async (name: string, email: string, subject: stri
 
   return data; 
 }
+
+//Funktion för att hämta in produkter
+export const getProducts = async (): Promise<Produkt> => {
+
+    const resp = await fetch(`${API_URL}/product`);
+
+    if(!resp.ok) {
+      throw new Error("Något gick fel med att läsa in produkter");
+    } else {
+      const data = await resp.json();
+
+      return data;
+    }
+}
+
+//Funktion för att hämta in event
+export const getEvents = async (): Promise<Event> => {
+
+    const resp = await fetch(`${API_URL}/event`);
+
+    if(!resp.ok) {
+      throw new Error("Något gick fel med att läsa in events");
+    } else {
+      const data = await resp.json();
+
+      return data;
+    }
+}
