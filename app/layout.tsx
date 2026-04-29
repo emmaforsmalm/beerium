@@ -37,7 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable}`}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <head>
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      </head>
       <body className="min-h-full flex flex-col">
       <nav>
         <Link href="/"><img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img></Link>

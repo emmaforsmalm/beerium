@@ -151,6 +151,7 @@ export interface Event {
         event_plats: string;
         event_titel: string;
         event_info: string;
+        event_lank: string;
     };
 }
 

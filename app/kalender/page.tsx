@@ -1,11 +1,13 @@
 //Importera funktion för att läsa in om oss-sidan från wordpress
-import { getCalendarPage, getMedia } from "@/apiReq/wordpressApi";
+import { getCalendarPage, getEvents, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./kalender.module.scss";
+import EventComponent from "@/components/EventComponent";
 
 export default async function Home() {
 
     const page = await getCalendarPage();
+    const events = await getEvents();
   
     const imgUrlHeader = await getMedia(page.acf.header_bild);
     const imgUrlEventOne = await getMedia(page.acf.event_bild_ett);
@@ -22,6 +24,15 @@ export default async function Home() {
         <div className={styles.header}>
         <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
         <h1>{page.acf.kalender_titel}</h1>          
+        </div>
+
+        <div>
+          {events.map((event) => (
+            <div key={event.id}>
+              <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} date={event.acf.event_datum} info={event.acf.event_info} link={event.acf.event_lank} />
+              
+            </div>
+          ))}
         </div>
 
         <div className={styles.highlights}>
