@@ -2,6 +2,7 @@
 import { getSortimentPage, getMedia, getProducts } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./sortiment.module.scss";
+import ProductComponent from "@/components/ProductComponent";
 
 export default async function Sortiment() {
 
@@ -23,19 +24,11 @@ export default async function Sortiment() {
         </div>
 
         <div className={styles.productDiv}>
-          {products.map((product) => {
-
-            const productImgUrl = getMedia(product.acf.produkt_bild);
-
-            return (
+          {products.map((product) => (
             <div key={product.id}>
-           <img src={productImgUrl} alt={product.acf.produkt_bild_beskrivning}></img>
-           <h3>{product.acf.produkt_titel}</h3>
-           </div> 
-            )
-
-})}
-          
+              <ProductComponent img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
+           </div>
+          ))}
         </div>
 
         <div className={styles.systembolagetDiv}>
