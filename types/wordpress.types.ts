@@ -171,6 +171,7 @@ export interface Produkt {
         produkt_bild: number;
         produkt_bild_beskrivning: string;
     };
+    productImgUrl?: string;
 }
 
 

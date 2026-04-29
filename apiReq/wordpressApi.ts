@@ -120,7 +120,7 @@ export const sendContactForm = async (name: string, email: string, subject: stri
 }
 
 //Funktion för att hämta in produkter
-export const getProducts = async (): Promise<Produkt> => {
+export const getProducts = async (): Promise<Produkt[]> => {
 
     const resp = await fetch(`${API_URL}/product`);
 
@@ -128,13 +128,20 @@ export const getProducts = async (): Promise<Produkt> => {
       throw new Error("Något gick fel med att läsa in produkter");
     } else {
       const data = await resp.json();
-
-      return data;
+      
+      const products = await Promise.all(
+        data.map(async (product: Produkt) => {
+          const productImgUrl = await getMedia(product.acf.produkt_bild);
+          return {...product, productImgUrl}
+        })
+      )
+      
+      return products;
     }
 }
 
 //Funktion för att hämta in event
-export const getEvents = async (): Promise<Event> => {
+export const getEvents = async (): Promise<Event[]> => {
 
     const resp = await fetch(`${API_URL}/event`);
 
@@ -142,7 +149,6 @@ export const getEvents = async (): Promise<Event> => {
       throw new Error("Något gick fel med att läsa in events");
     } else {
       const data = await resp.json();
-
       return data;
     }
 }
