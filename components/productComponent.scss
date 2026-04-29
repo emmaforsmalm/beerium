@@ -11,8 +11,42 @@ $second-heading: var(--font-outfit);
 
 .productComponentDiv {
     background-color: $main-beige;
+    margin: 0 auto;
+    text-align: center;
+    margin: 20px;
+    width: 300px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
     
     img {
         width: 150px;
+        height: 265px;
+        padding-top: 20px;
+        filter: drop-shadow(30px 15px 4px black);
+    }
+
+    h3 {
+        font-family: $second-heading;
+        font-size: 210%;
+    }
+
+    h4 {
+        color: $main-orange;
+        font-family: $comforterBrush;
+        font-size: 190%;
+        font-synthesis:none;
+        margin-top: -30px;
+    }
+
+    p{
+        font-family: $poppins;
+    }
+
+    .productShowInfo {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

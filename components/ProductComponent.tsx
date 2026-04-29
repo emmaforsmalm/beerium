@@ -11,14 +11,28 @@ type ProductProps = {
     info: string;
 }
 
-export default async function ProductComponent ({img, alt, title, category, info}: ProductProps) {
+export default function ProductComponent ({img, alt, title, category, info}: ProductProps) {
+
+    const [show, setShow] = useState(false);
+
+    const toggleShow = () => {
+        setShow(!show);
+    }
 
     return (        
-        <>
+        <div className='productComponentDiv'>
            <img src={img} alt={alt}></img>
            <h3>{title}</h3>
            <h4>{category}</h4>
-           <p>{info}</p>
-        </>
+           {!show &&(
+            <p className='productShowInfo' onClick={toggleShow}>Visa information<span className="material-symbols-outlined">arrow_drop_down</span></p>
+           )}
+           {show && (
+            <p className='productShowInfo' onClick={toggleShow}>Dölj information<span className="material-symbols-outlined">arrow_drop_up</span></p>
+           )}
+           {show && (
+           <p>{info}</p>            
+           )}
+        </div>
         )
 }

@@ -64,3 +64,12 @@ $second-heading: var(--font-outfit);
         margin-top: -13px;
     }
 }
+
+.productDiv {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    justify-items: center;
+    width: 700px;
+    margin: 0 auto;
+}
