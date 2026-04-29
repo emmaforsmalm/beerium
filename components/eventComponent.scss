@@ -1,0 +1,26 @@
+
+$main-grey: #292929;
+$main-beige: #F1E9DC;
+$main-orange: #F05A22;
+$main-brown: #723C14;
+$main-green: #5B6D37;
+
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+$second-heading: var(--font-outfit);
+
+.eventComponentDiv {
+    display: flex;
+    width: 500px;
+    margin: 0 auto;
+    .eventDate {
+        color: $main-beige;
+        font-family: $second-heading;
+        font-size: 150%;
+        border-right: 2px solid $main-green;
+        padding-right: 20px;
+        margin-right: 20px;
+        width: 50px;
+    }
+}

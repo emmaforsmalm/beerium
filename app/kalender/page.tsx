@@ -27,7 +27,8 @@ export default async function Home() {
         </div>
 
         <div>
-          {events.map((event) => (
+          {events.sort((a, b) => new Date(a.acf.event_datum).getDate() - new Date(b.acf.event_datum).getDate())
+          .map((event) => (
             <div key={event.id}>
               <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} date={event.acf.event_datum} info={event.acf.event_info} link={event.acf.event_lank} />
               

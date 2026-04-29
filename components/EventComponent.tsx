@@ -1,6 +1,6 @@
 'use client';
 
-import './productComponent.scss';
+import './eventComponent.scss';
 import { useState } from "react";
 
 type EventProps = {
@@ -21,21 +21,21 @@ export default function EventComponent ({title, date, place, info, link}: EventP
 
     return (        
         <div className='eventComponentDiv'>
-              <p>{date}</p>
+              <p className='eventDate'>{date}</p>
               <div>
               <h2>{title}</h2>  
-              <p>{place}</p>
+              <p className='eventPlace'>{place}</p>
             {!show &&(
-                <p className='productShowInfo' onClick={toggleShow}>Visa information<span className="material-symbols-outlined">arrow_drop_down</span></p>
+                <p className='eventShowInfo' onClick={toggleShow}>Visa information<span className="material-symbols-outlined">arrow_drop_down</span></p>
             )}
             {show && (
-                <p className='productShowInfo' onClick={toggleShow}>Dölj information<span className="material-symbols-outlined">arrow_drop_up</span></p>
+                <p className='eventShowInfo' onClick={toggleShow}>Dölj information<span className="material-symbols-outlined">arrow_drop_up</span></p>
             )}
               {info && show && (
-                <p>{info}</p>)}
+                <p className='eventInfo'>{info}</p>)}
 
               {link && (
-                <a href={link}>Till eventet</a>)}
+                <a className='eventLink' href={link}>Till eventet</a>)}
               </div>
 
         </div>
