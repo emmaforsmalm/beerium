@@ -4,6 +4,9 @@ import { getCalendarPage, getEvents, getMedia } from "@/apiReq/wordpressApi";
 import styles from "./kalender.module.scss";
 import EventComponent from "@/components/EventComponent";
 
+//Importera funktioner för att hantera datum
+import { parseDate, formatEventDate } from "@/functions/DateFunctions";
+
 export default async function Home() {
 
     const page = await getCalendarPage();
@@ -16,6 +19,8 @@ export default async function Home() {
     const imgUrlEventFour = await getMedia(page.acf.event_bild_fyra);
     const imgUrlEventFive = await getMedia(page.acf.event_bild_fem);
     const imgUrlEventSix = await getMedia(page.acf.event_bild_sex);
+
+
 
 
   return (
