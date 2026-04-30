@@ -1,14 +1,18 @@
 
 //Importera funktion för att läsa in startsida från wordpress
-import { getStartPage, getMedia } from "@/apiReq/wordpressApi";
+import { getStartPage, getMedia, getEvents } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./page.module.scss";
 //Importera Link
 import Link from "next/link";
+import { getLatestEvent } from "@/functions/FilterFunctions";
+import EventComponent from "@/components/EventComponent";
 
 export default async function Home() {
 
   const page = await getStartPage();
+  const events = await getEvents();
+  const nextEvent = await getLatestEvent(events);
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
@@ -42,6 +46,9 @@ export default async function Home() {
 
         <div className={styles.eventDiv}>
           <h2>{page.acf.nasta_event_titel}</h2>
+          <div key={nextEvent.id}>
+          <EventComponent title={nextEvent.acf.event_titel} place={nextEvent.acf.event_plats} startDate={nextEvent.acf.start_datum} endDate={nextEvent.acf.slut_datum}/>
+          </div>
           <Link className={styles.calendarLink} href="/kalender">Se vår kalender</Link>
         </div>
 
