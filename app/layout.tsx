@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Poppins, Comforter_Brush, Playfair_Display, Outfit} from "next/font/google";
 import localFont from 'next/font/local';
+import FooterComponent from "@/components/FooterComponent";
 
 const azoSans = localFont({
   src: './fonts/azosansbold.woff2',
@@ -50,6 +51,7 @@ export default function RootLayout({
         <Link className="navMenuLink" href="/medlem">Medlem</Link>
       </nav>  
         {children}
+        <FooterComponent/>
       </body>
     </html>
   );

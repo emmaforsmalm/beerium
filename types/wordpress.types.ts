@@ -194,12 +194,12 @@ export interface Footer {
         footer_tagline: string;
         footer_adress: string;
         footer_epost: string;
-        footer_facebook_img: number;
-        footer_facebook_link: string;
-        footer_instagram_img: number;
-        footer_instagram_link: string;
-        footer_untappd_img: number;
-        footer_untappd_link: string;
+        footer_facebook_img?: number;
+        footer_facebook_link?: string;
+        footer_instagram_img?: number;
+        footer_instagram_link?: string;
+        footer_untappd_img?: number;
+        footer_untappd_link?: string;
         footer_logga: number;
     };
 }
