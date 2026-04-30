@@ -1,17 +1,20 @@
 'use client';
 
+import { parseDate, formatEventDate } from '@/functions/DateFunctions';
 import './eventComponent.scss';
 import { useState } from "react";
 
+
 type EventProps = {
     title: string;
-    date: string;
+    startDate: string;
+    endDate: string;
     place: string;
     info?: string;
     link?: string;
 }
 
-export default function EventComponent ({title, date, place, info, link}: EventProps) {
+export default function EventComponent ({title, startDate, endDate, place, info, link}: EventProps) {
 
     const [show, setShow] = useState(false);
 
@@ -21,7 +24,7 @@ export default function EventComponent ({title, date, place, info, link}: EventP
 
     return (        
         <div className='eventComponentDiv'>
-              <p className='eventDate'>{date}</p>
+              <p className='eventDate'>{formatEventDate(startDate, endDate)}</p>
               <div>
               <h2>{title}</h2>  
               <p className='eventPlace'>{place}</p>

@@ -147,7 +147,8 @@ export interface Event {
         rendered: string;
     };
     acf: {
-        event_datum: string;
+        start_datum: string;
+        slut_datum: string;
         event_plats: string;
         event_titel: string;
         event_info: string;
