@@ -1,5 +1,5 @@
 //Importera typer för sidor och poster
-import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender } from "@/types/wordpress.types";
+import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer } from "@/types/wordpress.types";
 
 //Hämta in URL för api
 const API_URL = process.env.WORDPRESS_API_URL;
@@ -68,6 +68,20 @@ export const getCalendarPage = async (): Promise<Kalender> => {
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in kalendersidan");
+    } else {
+      const data = await resp.json();
+
+      return data[0];
+    }
+}
+
+//Funktion för att hämta in footer
+export const getFooter = async (): Promise<Footer> => {
+
+    const resp = await fetch(`${API_URL}/pages?slug=footer`);
+
+    if(!resp.ok) {
+      throw new Error("Något gick fel med att läsa in footer");
     } else {
       const data = await resp.json();
 
