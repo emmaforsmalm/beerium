@@ -33,3 +33,4 @@ export const formatEventDate = (startDate: string, endDate: string) => {
     //Om start och slutdatum är på olika månader
     return `${startDay} ${startMonth} - ${endDay} ${endMonth}`
 }
+

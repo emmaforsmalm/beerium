@@ -14,6 +14,7 @@ export default async function Home() {
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
 
 
+
   return (
     <div>
       <main>
