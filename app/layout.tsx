@@ -42,7 +42,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
       <nav>
-        <Link href="/"><img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img></Link>
+        <Link className="logoLink" href="/"><img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img></Link>
         <Link className="navMenuLink" href="/">Hem</Link>
         <Link className="navMenuLink" href="/sortiment">Vårt sortiment</Link>
         <Link className="navMenuLink" href="/kalender">Kalender</Link>

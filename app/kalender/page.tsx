@@ -31,7 +31,7 @@ export default async function Home() {
         <h1>{page.acf.kalender_titel}</h1>          
         </div>
 
-        <div>
+        <div className={styles.calenderContent}>
           {events.sort((a, b) => parseDate(a.acf.start_datum).getDate() - parseDate(b.acf.start_datum).getDate())
           .map((event) => (
             <div key={event.id}>

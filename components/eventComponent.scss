@@ -3,7 +3,7 @@ $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
 $main-brown: #723C14;
-$main-green: #5B6D37;
+$main-green: #8d9a72;
 
 $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
@@ -12,8 +12,9 @@ $second-heading: var(--font-outfit);
 
 .eventComponentDiv {
     display: flex;
-    width: 500px;
-    margin: 0 auto;
+    justify-content: flex-start;
+    width: 430px;
+
     .eventDate {
         color: $main-beige;
         font-family: $second-heading;
@@ -21,6 +22,59 @@ $second-heading: var(--font-outfit);
         border-right: 2px solid $main-green;
         padding-right: 20px;
         margin-right: 20px;
-        width: 50px;
+        width: 80px;
+    }
+
+    h2 {
+        color: $main-beige;
+        font-family: $second-heading;
+    }
+
+    .eventPlace {
+        color: $main-beige;
+        font-family: $poppins;
+        margin-top: -10px;
+    }
+
+    .eventInfo {
+        color: $main-beige;
+        font-family: $poppins;
+        font-size: 85%;
+        white-space: pre-line;
+    }
+
+    .eventShowInfo {
+        color: $main-beige;
+        justify-content: center;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: $poppins;
+        color: $main-green;
+
+        &:hover {
+            color: lighten($main-green, 20%);
+        }
+    }
+
+    .eventLink {
+        color: $main-green;
+        text-decoration: none;
+        font-family: $poppins;
+        font-size: 90%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &:hover {
+            color: lighten($main-green, 20%);
+        }
+
+        .material-symbols-outlined{
+            font-size: 110%;
+            margin-left: 5px;
+            text-decoration: none;
+        }
     }
 }

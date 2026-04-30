@@ -25,7 +25,7 @@ export default function EventComponent ({title, startDate, endDate, place, info,
     return (        
         <div className='eventComponentDiv'>
               <p className='eventDate'>{formatEventDate(startDate, endDate)}</p>
-              <div>
+              <div className='eventContent'>
               <h2>{title}</h2>  
               <p className='eventPlace'>{place}</p>
             {!show &&(
@@ -38,7 +38,7 @@ export default function EventComponent ({title, startDate, endDate, place, info,
                 <p className='eventInfo'>{info}</p>)}
 
               {link && (
-                <a className='eventLink' href={link}>Till eventet</a>)}
+                <a className='eventLink' href={link}>Till eventet<span className="material-symbols-outlined">open_in_new</span></a>)}
               </div>
 
         </div>
