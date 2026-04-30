@@ -1,18 +1,21 @@
 
 //Importera funktion för att läsa in startsida från wordpress
-import { getStartPage, getMedia, getEvents } from "@/apiReq/wordpressApi";
+import { getStartPage, getMedia, getEvents, getProducts } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./page.module.scss";
 //Importera Link
 import Link from "next/link";
-import { getLatestEvent } from "@/functions/FilterFunctions";
+import { getLatestEvent, getLatestProducts } from "@/functions/FilterFunctions";
 import EventComponent from "@/components/EventComponent";
+import ProductComponent from "@/components/ProductComponent";
 
 export default async function Home() {
 
   const page = await getStartPage();
   const events = await getEvents();
   const nextEvent = await getLatestEvent(events);
+  const products = await getProducts();
+  const latestProducts = await getLatestProducts(products);
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
@@ -54,6 +57,11 @@ export default async function Home() {
 
         <div className={styles.productDiv}>
           <h2>{page.acf.senaste_produkter_titel}</h2>
+          {latestProducts.map((product) => (
+            <div key={product.id}>
+              <ProductComponent img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
+           </div>
+          ))}
           <Link className={styles.productsLink} href="/sortiment">Vårt sortiment</Link>
         </div>
 

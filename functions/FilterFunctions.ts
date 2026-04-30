@@ -1,4 +1,4 @@
-import { Event } from "@/types/wordpress.types";
+import { Event, Produkt } from "@/types/wordpress.types";
 import { parseDate } from "./DateFunctions";
 
 //Hämta näst kommande event
@@ -16,3 +16,6 @@ export const getLatestEvent = (events: Event[]) => {
 }
 
 //Hämta in senaste produkterna
+export const getLatestProducts = (products: Produkt[]) => {
+    return products.slice(0,3);
+}
