@@ -42,3 +42,41 @@ nav {
 body {
     background-color: $main-grey;
 }
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+
+    .menuLogos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menuSymbol {
+        cursor: pointer;
+        color: $main-beige;
+        font-size: 180%;
+    }
+}
+
+.menuMobileLinks {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mobileNav {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .mainNav {
+        display: none;
+    }
+
+    .mobileNav {
+        display: block;
+    }
+}

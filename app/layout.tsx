@@ -1,6 +1,7 @@
+
 import type { Metadata } from "next";
 import "./globals.scss";
-import Link from "next/link";
+import NavComponent from "@/components/NavComponent";
 
 import { Poppins, Comforter_Brush, Playfair_Display, Outfit} from "next/font/google";
 import localFont from 'next/font/local';
@@ -36,20 +37,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
     <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable}`}>
       <head>
               <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>
       <body className="min-h-full flex flex-col">
-      <nav>
-        <Link className="logoLink" href="/"><img className="logo" src="/Beerium_Logga_ub.png" alt="Beeriums logga"></img></Link>
-        <Link className="navMenuLink" href="/">Hem</Link>
-        <Link className="navMenuLink" href="/sortiment">Vårt sortiment</Link>
-        <Link className="navMenuLink" href="/kalender">Kalender</Link>
-        <Link className="navMenuLink" href="/omoss">Om oss</Link>
-        <Link className="navMenuLink" href="/medlem">Medlem</Link>
-      </nav>  
+        <NavComponent />
         {children}
         <FooterComponent/>
       </body>
