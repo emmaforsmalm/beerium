@@ -1,6 +1,6 @@
 'use client';
 
-import { parseDate, formatEventDate } from '@/functions/DateFunctions';
+import { formatEventDate } from '@/functions/DateFunctions';
 import './eventComponent.scss';
 import { useState } from "react";
 

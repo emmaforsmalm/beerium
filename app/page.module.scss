@@ -107,6 +107,16 @@ $second-heading: var(--font-outfit);
 
 //Design för kalendersektion på startsidan
 .eventDiv {
+
+    .eventContentDiv {
+        border: 2px solid $main-beige;
+        border-radius: 10px;
+        width: 45%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 30px;
+    }
+
     h2 {
     color: $main-beige;
     text-align: center;
@@ -128,10 +138,31 @@ $second-heading: var(--font-outfit);
         margin: 0 auto;
         width: 18%;
     }
+
+    .eventDate {
+        color: $main-beige;
+        font-family: $second-heading;
+        font-size: 140%;
+        margin-bottom: -10px;
+    }
+
+    .eventTitle {
+        color: $main-beige;
+        font-family: $poppins;
+        font-size: 120%;
+        margin-bottom: -10px;
+    }
+
+    .eventPlace {
+        color: $main-beige;
+        font-family: $poppins;
+        font-size: 120%;
+    }
 }
 
 //Design av produktsektion på startsidan
 .productDiv {
+
     h2 {
     color: $main-beige;
     text-align: center;
@@ -173,6 +204,52 @@ $second-heading: var(--font-outfit);
         font-size: 270%;
         margin-top: -50px;
     }
+}
+
+.noEvent {
+    color: $main-beige;
+    font-family: $poppins;
+    text-align: center;
+    padding: 25px;
+}
+.mainProductList {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: $main-beige;
+    margin-bottom: 30px;
+}
+
+.latestProducts{
+    background-color: $main-grey;
+    margin: 0 auto;
+    text-align: center;
+    margin: 20px;
+    width: 300px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0px;
+    
+    img {
+        width: 100px;
+        height: 180px;
+        padding-top: 20px;
+        filter: drop-shadow(30px 15px 5px rgb(27, 27, 27));
+    }
+
+    h3 {
+        font-family: $second-heading;
+        font-size: 180%;
+        color: $main-beige;
+    }
+
+    h4 {
+        color: $main-orange;
+        font-family: $comforterBrush;
+        font-size: 170%;
+        font-synthesis:none;
+        margin-top: -30px;
+    }    
 }
 
 

@@ -19,6 +19,7 @@ export interface Startsida {
         om_oss_titel: string;
         om_oss_text: string;
         nasta_event_titel: string;
+        inget_nasta_event: string;
         senaste_produkter_titel: string;
         kraftolskamrat_tagline: string;
         kraftolskamrat_lanktext: string;

@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getLatestEvent, getLatestProducts } from "@/functions/FilterFunctions";
 import EventComponent from "@/components/EventComponent";
 import ProductComponent from "@/components/ProductComponent";
+import { formatEventDate } from "@/functions/DateFunctions";
 
 export default async function Home() {
 
@@ -19,6 +20,9 @@ export default async function Home() {
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
+
+  const nextEventDate = formatEventDate(nextEvent.acf.start_datum, nextEvent.acf.slut_datum);
+
 
 
 
@@ -49,19 +53,30 @@ export default async function Home() {
 
         <div className={styles.eventDiv}>
           <h2>{page.acf.nasta_event_titel}</h2>
-          <div key={nextEvent.id}>
-          <EventComponent title={nextEvent.acf.event_titel} place={nextEvent.acf.event_plats} startDate={nextEvent.acf.start_datum} endDate={nextEvent.acf.slut_datum}/>
-          </div>
-          <Link className={styles.calendarLink} href="/kalender">Se vår kalender</Link>
+          {nextEvent && (
+            <div className={styles.eventContentDiv} key={nextEvent.id}>
+              <p className={styles.eventDate}>{nextEventDate}</p>
+              <p className={styles.eventTitle}>{nextEvent.acf.event_titel}</p>
+              <p className={styles.eventPlace}>{nextEvent.acf.event_plats}</p>
+          </div>)}
+          {!nextEvent && (
+            <p className={styles.noEvent}>{page.acf.inget_nasta_event}</p>
+          )}
+          <Link className={styles.calendarLink} href="/kalender">Se hela kalendern</Link>
         </div>
+
 
         <div className={styles.productDiv}>
           <h2>{page.acf.senaste_produkter_titel}</h2>
+          <div className={styles.mainProductList}>
           {latestProducts.map((product) => (
-            <div key={product.id}>
-              <ProductComponent img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
+            <div className={styles.latestProducts} key={product.id}>
+              <img src={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning}></img>
+              <h3>{product.acf.produkt_titel}</h3>
+              <h4>{product.acf.produkt_kategori}</h4>
            </div>
           ))}
+          </div>
           <Link className={styles.productsLink} href="/sortiment">Vårt sortiment</Link>
         </div>
 
