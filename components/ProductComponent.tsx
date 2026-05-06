@@ -31,7 +31,7 @@ export default function ProductComponent ({img, alt, title, category, info}: Pro
             <p className='productShowInfo' onClick={toggleShow}>Dölj information<span className="material-symbols-outlined">arrow_drop_up</span></p>
            )}
            {show && (
-           <p>{info}</p>            
+           <p className='productInfo'>{info}</p>            
            )}
         </div>
         )

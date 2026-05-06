@@ -25,9 +25,7 @@ export default async function Sortiment() {
 
         <div className={styles.productDiv}>
           {products.map((product) => (
-            <div key={product.id}>
-              <ProductComponent img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
-           </div>
+              <ProductComponent key={product.id} img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
           ))}
         </div>
 

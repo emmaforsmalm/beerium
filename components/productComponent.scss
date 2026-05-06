@@ -50,3 +50,26 @@ $second-heading: var(--font-outfit);
         justify-content: center;
     }
 }
+
+@media (max-width: 1100px) {
+
+    .productComponentDiv {
+        img {
+            width: 120px;
+            height: 210px;
+        }
+
+        h3 {
+            font-size: 190%;
+        }
+
+        h4 {
+            font-size: 180%;
+        }
+    }
+
+    .productDiv {
+            grid-template-columns: repeat(1,1fr);
+    }
+
+}

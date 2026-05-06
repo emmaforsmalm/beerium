@@ -10,50 +10,59 @@ $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
 
 .header {
+
     img {
         width: 100%;
     }
 
     h1 {
         color: $main-beige;
-        font-family: $second-heading;
+        font-family: $azoSans;
         text-align: center;
-        font-size: 300%;
+        font-size: 450%;
     }
 
     p {
         color: $main-orange;
         text-align: center;
         font-family: $comforterBrush;
-        font-size: 300%;
-        margin-top: -50px;
+        font-size: 450%;
+        margin-top: -85px;
     }
 }
 
 .systembolagetDiv {
+
+    margin-top: 100px;
+
     h2 {
         font-family: $second-heading;
         color: $main-beige;
         text-align: center;
-        width: 60%;
         display: block;
         margin: 0 auto;
+        font-size: 230%;
+        width: 450px;
     }
 
     .systembolagetLink img {
         display: block;
         margin: 0 auto;
-        width: 40%;
-        margin-top: 3%;
+        width: 350px;
+        margin-top: 30px;
     }
 }
 
 .krogDiv {
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+
     h2 {
         font-family: $second-heading;
         color: $main-beige;
         text-align: center;
-        font-size: 130%;
+        font-size: 180%;
         margin-top: 10%;       
     }
 
@@ -62,6 +71,7 @@ $second-heading: var(--font-outfit);
         color: $main-orange;
         text-align: center;
         margin-top: -13px;
+        font-size: 130%;
     }
 }
 
@@ -72,6 +82,98 @@ $second-heading: var(--font-outfit);
     justify-items: center;
     width: 700px;
     margin: 0 auto;
+    align-items: stretch;
+        row-gap: 50px;
 }
 
+//Anpassningar till stora skärmar
+@media (min-width: 1500px) {
 
+    .systembolagetDiv {
+        .systembolagetLink img {
+            width: 400px;
+        }
+    }
+
+    .krogDiv {
+
+        h2 {
+            font-size: 230%;
+            width: 600px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 160%;
+            color: black;
+            margin-top: 20px;
+        }
+    }
+
+    .productDiv {
+            grid-template-columns: repeat(3,1fr);
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .productDiv {
+            grid-template-columns: repeat(1,1fr);
+            width: 500px;
+    }
+
+    .header {
+        h1 {
+            font-size: 330%;
+        }
+
+        p {
+            font-size: 330%;
+            margin-top: -60px;
+        }
+    }
+
+        .systembolagetDiv {
+        .systembolagetLink img {
+            width: 300px;
+        }
+
+    }
+
+    .krogDiv {
+        margin: 0 auto;
+        width: 95%;
+        max-width: 400px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .productDiv {
+            grid-template-columns: repeat(1,1fr);
+            width: 300px;
+    }
+
+        .header {
+        h1 {
+            font-size: 270%;
+        }
+
+        p {
+            font-size: 270%;
+            margin-top: -60px;
+        }
+    }
+
+    .systembolagetDiv {
+        font-size: 80%;
+
+        .systembolagetLink img {
+            width: 210px;
+        }
+    }
+}
