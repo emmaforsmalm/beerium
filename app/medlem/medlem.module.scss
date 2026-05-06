@@ -18,30 +18,76 @@ $second-heading: var(--font-outfit);
         color: $main-beige;
         font-family: $second-heading;
         text-align: center;
-        font-size: 300%;
+        font-size: 330%;
     }
 
     p {
         color: $main-orange;
         font-family: $comforterBrush;
-        font-size: 270%;
+        font-size: 300%;
         text-align: center;
-        margin-top: -50px;
+        margin-top: -60px;
     }
 }
 
 .memberDiv {
-        width: 70%;
+        display: block;
         margin: 0 auto;
+        max-width: 700px;
+        width: 80%;
+
     h2 {
         color: $main-beige;
         font-family: $second-heading;
+        font-size: 200%;
     }
 
     p {
         white-space: pre-line;
         color: $main-beige;
         font-family: $poppins;
+        font-size: 120%;
+    }
+}
 
+@media (min-width: 1500px) {
+    
+}
+
+@media (max-width: 1100px) {
+    .header {
+        h1 {
+            font-size: 300%;
+        }
+
+        p {
+            font-size: 270%;
+            margin-top: -50px;
+        }
+    }
+
+    .memberDiv {
+        display: block;
+        margin: 0 auto;
+        max-width: 600px;
+        width: 80%;
+
+        p {
+            font-size: 110%;
+        }
+    }
+
+}
+
+@media (max-width: 700px) {
+        .header {
+        h1 {
+            font-size: 250%;
+        }
+
+        p {
+            font-size: 230%;
+            margin-top: -45px;
+        }
     }
 }
