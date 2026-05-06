@@ -21,7 +21,10 @@ export default async function Home() {
   const imgUrlHeader = await getMedia(page.acf.header_bild);
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
 
-  const nextEventDate = formatEventDate(nextEvent.acf.start_datum, nextEvent.acf.slut_datum);
+  let nextEventDate = null;
+  if(nextEvent) {
+  nextEventDate = formatEventDate(nextEvent.acf.start_datum, nextEvent.acf.slut_datum);
+  }
 
 
 
@@ -59,7 +62,7 @@ export default async function Home() {
               <p className={styles.eventTitle}>{nextEvent.acf.event_titel}</p>
               <p className={styles.eventPlace}>{nextEvent.acf.event_plats}</p>
           </div>)}
-          {!nextEvent && (
+          {!nextEvent && !nextEventDate && (
             <p className={styles.noEvent}>{page.acf.inget_nasta_event}</p>
           )}
           <Link className={styles.calendarLink} href="/kalender">Se hela kalendern</Link>
