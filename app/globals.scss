@@ -85,9 +85,6 @@ body {
 
 //Anpassningar till stora skärmar
 @media (min-width: 1500px) {
-    body {
-        background-color: #F05A22;
-    }
 
     nav {
     .navMenuLink {
@@ -98,17 +95,8 @@ body {
 
 }
 
-@media (max-width: 1100px) {
-    body {
-        background-color: blue;
-    }
-
-}
 
 @media (max-width: 700px) {
-    body {
-        background-color: red;
-    }
 
     nav {
         .logo {

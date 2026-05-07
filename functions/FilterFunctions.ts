@@ -15,6 +15,16 @@ export const getLatestEvent = (events: Event[]) => {
 
 }
 
+//Sortera event i datum-ordning
+//Hämta näst kommande event
+export const sortEvents = (events: Event[]) => {
+
+    //Filtrera events på datum som har passerat och sortera på tidigast
+    return events 
+    .sort((a,b) => parseDate(a.acf.start_datum).getTime() - parseDate(b.acf.start_datum).getTime());
+
+}
+
 //Hämta in senaste produkterna
 export const getLatestProducts = (products: Produkt[]) => {
     return products.slice(0,3);

@@ -68,7 +68,7 @@ $second-heading: var(--font-outfit);
 
     p {
         font-family: $poppins;
-        color: $main-orange;
+        color: lighten($main-orange, 3%);
         text-align: center;
         margin-top: -13px;
         font-size: 130%;

@@ -22,8 +22,8 @@ export default function ProductComponent ({img, alt, title, category, info}: Pro
     return (        
         <div className='productComponentDiv'>
            <img src={img} alt={alt}></img>
-           <h3>{title}</h3>
-           <h4>{category}</h4>
+           <h2>{title}</h2>
+           <h3>{category}</h3>
            {!show &&(
             <p className='productShowInfo' onClick={toggleShow}>Visa information<span className="material-symbols-outlined">arrow_drop_down</span></p>
            )}

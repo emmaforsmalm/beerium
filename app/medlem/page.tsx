@@ -1,7 +1,13 @@
+export const metadata: Metadata = {
+  title: "Medlem - Beerium",
+  description: "Bli en del av Beerium som kraftölskamrat"
+}
+
 //Importera funktion för att läsa in om oss-sidan från wordpress
 import { getMemberPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./medlem.module.scss";
+import { Metadata } from "next";
 
 export default async function Member() {
 

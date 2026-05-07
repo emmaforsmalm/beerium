@@ -1,8 +1,14 @@
+export const metadata: Metadata = {
+  title: "Sortiment - Beerium",
+  description: "Utforska Beeriums sortiment av hantverksöl"
+}
+
 //Importera funktion för att läsa in sortimentsidan från wordpress
 import { getSortimentPage, getMedia, getProducts } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./sortiment.module.scss";
 import ProductComponent from "@/components/ProductComponent";
+import { Metadata } from "next";
 
 export default async function Sortiment() {
 

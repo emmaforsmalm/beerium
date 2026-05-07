@@ -1,3 +1,8 @@
+export const metadata: Metadata = {
+  title: "Om oss - Beerium",
+  description: "Lär känna kraftölsbryggeriet Beerium"
+}
+
 //Importera funktion för att läsa in om oss-sidan från wordpress
 import { getAboutPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
@@ -5,6 +10,7 @@ import styles from "./omoss.module.scss";
 
 //Importera kontaktformulärs-komponent
 import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
 
 
 export default async function About() {

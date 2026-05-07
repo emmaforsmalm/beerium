@@ -1,3 +1,7 @@
+export const metadata: Metadata = {
+  title: "Startsida - Beerium",
+  description: "Kraftölsbryggeriet Beerium"
+}
 
 //Importera funktion för att läsa in startsida från wordpress
 import { getStartPage, getMedia, getEvents, getProducts } from "@/apiReq/wordpressApi";
@@ -9,6 +13,7 @@ import { getLatestEvent, getLatestProducts } from "@/functions/FilterFunctions";
 import EventComponent from "@/components/EventComponent";
 import ProductComponent from "@/components/ProductComponent";
 import { formatEventDate } from "@/functions/DateFunctions";
+import { Metadata } from "next";
 
 export default async function Home() {
 

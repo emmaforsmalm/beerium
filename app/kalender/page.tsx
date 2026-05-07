@@ -1,3 +1,9 @@
+//Sätter en titel för sidan med metadata
+export const metadata: Metadata = {
+  title: "Kalender - Beerium",
+  description: "Se våra planerade evenemang under året"
+}
+
 //Importera funktion för att läsa in om oss-sidan från wordpress
 import { getCalendarPage, getEvents, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
@@ -6,6 +12,7 @@ import EventComponent from "@/components/EventComponent";
 
 //Importera funktioner för att hantera datum
 import { parseDate, formatEventDate } from "@/functions/DateFunctions";
+import { Metadata } from "next";
 
 export default async function Home() {
 
