@@ -455,4 +455,14 @@ margin: 20px;
 
 }
 
+@media (max-width: 500px) {
+    .latestProducts {
+        width: 250px;
+
+        img {
+            padding-top: 40px;
+        }
+    }
+}
+
 

@@ -22,6 +22,8 @@ $second-heading: var(--font-outfit);
 
     .footerMainDiv {
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .footerInfoDiv {
@@ -78,6 +80,36 @@ $second-heading: var(--font-outfit);
             height: 50px;
             padding: 0;
         }
+    }
+
+}
+
+@media (max-width: 500px) {
+    .footer {
+
+        .footerMainDiv {
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            margin-left: -30px;
+        }
+
+
+
+    .footerInfoDiv{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }        
+
+    .footerSocials {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .footerAdressEmail {
+        margin-top: -20px;
+    }
     }
 
 }

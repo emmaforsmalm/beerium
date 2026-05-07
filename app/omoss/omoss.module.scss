@@ -151,3 +151,20 @@ $second-heading: var(--font-outfit);
 }
 
 }
+
+@media (max-width: 500px) {
+
+    .header {
+        h1 {
+            font-size: 250%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+    }
+
+    .contact {
+        width: 290px;
+    }
+}

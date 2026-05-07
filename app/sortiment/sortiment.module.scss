@@ -177,3 +177,21 @@ $second-heading: var(--font-outfit);
         }
     }
 }
+
+@media (max-width: 500px) {
+    .header {
+        h1 {
+            line-height: 40px;
+        }
+        p {
+            margin-top: -45px;           
+        }
+    }
+
+    .systembolagetDiv {
+        h2 {
+        width: 80%;            
+        }
+
+    }
+}

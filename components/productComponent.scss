@@ -73,3 +73,9 @@ $second-heading: var(--font-outfit);
     }
 
 }
+
+@media (max-width: 500px) {
+    .productComponentDiv {
+        width: 250px;
+    }
+}

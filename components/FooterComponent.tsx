@@ -33,7 +33,7 @@ export default async function FooterComponent () {
         </div>
 </div>
         <div className='footerInfoDiv'>
-            <div>
+            <div className='footerAdressEmail'>
                 <p className='footerAdress'>{footer.acf.footer_adress}</p>
                 <p className='footerEmail'>{footer.acf.footer_epost}</p>
             </div>

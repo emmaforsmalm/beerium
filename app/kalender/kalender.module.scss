@@ -93,3 +93,16 @@ $second-heading: var(--font-outfit);
     }
 }
 }
+
+@media (max-width: 500px) {
+    .header {
+        h1 {
+            font-size: 210%;
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}

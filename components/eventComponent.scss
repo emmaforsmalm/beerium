@@ -113,3 +113,9 @@ h2 {
 width: 400px;
 }
 }
+
+@media (max-width: 500px) {
+    .eventComponentDiv {
+        width: 250px;
+    }
+}
