@@ -11,7 +11,7 @@ import styles from "./kalender.module.scss";
 import EventComponent from "@/components/EventComponent";
 
 //Importera funktioner för att hantera datum
-import { parseDate, formatEventDate } from "@/functions/DateFunctions";
+import { parseDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
 
 export default async function Home() {
@@ -29,7 +29,6 @@ export default async function Home() {
 
 
 
-
   return (
     <div>
       <main>
@@ -39,7 +38,7 @@ export default async function Home() {
         </div>
 
         <div className={styles.calenderContent}>
-          {events.sort((a, b) => parseDate(a.acf.start_datum).getDate() - parseDate(b.acf.start_datum).getDate())
+          {events.sort((a, b) => parseDate(a.acf.start_datum).getTime() - parseDate(b.acf.start_datum).getTime())
           .map((event) => (
             <div key={event.id}>
               <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} />
