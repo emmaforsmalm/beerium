@@ -8,7 +8,9 @@ const FORM_URL = process.env.NEXT_PUBLIC_WP_URL;
 //Funktion för att hämta in startsidan
 export const getStartPage = async (): Promise<Startsida> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=startsida`);
+    const resp = await fetch(`${API_URL}/pages?slug=startsida`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in startsidan");
@@ -22,7 +24,9 @@ export const getStartPage = async (): Promise<Startsida> => {
 //Funktion för att hämta in sortimentsidan
 export const getSortimentPage = async (): Promise<Sortiment> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=sortiment`);
+    const resp = await fetch(`${API_URL}/pages?slug=sortiment`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in sortimentsidan");
@@ -36,7 +40,9 @@ export const getSortimentPage = async (): Promise<Sortiment> => {
 //Funktion för att hämta in medlemssidan
 export const getMemberPage = async (): Promise<Medlem> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=medlem`);
+    const resp = await fetch(`${API_URL}/pages?slug=medlem`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in medlemssidan");
@@ -50,7 +56,9 @@ export const getMemberPage = async (): Promise<Medlem> => {
 //Funktion för att hämta in om oss-sidan
 export const getAboutPage = async (): Promise<OmOss> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=om-oss`);
+    const resp = await fetch(`${API_URL}/pages?slug=om-oss`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in om oss-sidan");
@@ -64,7 +72,9 @@ export const getAboutPage = async (): Promise<OmOss> => {
 //Funktion för att hämta in kalendersidan
 export const getCalendarPage = async (): Promise<Kalender> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=kalender`);
+    const resp = await fetch(`${API_URL}/pages?slug=kalender`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in kalendersidan");
@@ -78,7 +88,9 @@ export const getCalendarPage = async (): Promise<Kalender> => {
 //Funktion för att hämta in footer
 export const getFooter = async (): Promise<Footer> => {
 
-    const resp = await fetch(`${API_URL}/pages?slug=footer`);
+    const resp = await fetch(`${API_URL}/pages?slug=footer`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in footer");
@@ -92,7 +104,9 @@ export const getFooter = async (): Promise<Footer> => {
 //Funktion för att hämta in bilder från api
 export const getMedia = async (id: number): Promise<string> => {
 
-  const resp = await fetch(`${API_URL}/media/${id}`);
+  const resp = await fetch(`${API_URL}/media/${id}`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in bilden");
@@ -136,7 +150,9 @@ export const sendContactForm = async (name: string, email: string, subject: stri
 //Funktion för att hämta in produkter
 export const getProducts = async (): Promise<Produkt[]> => {
 
-    const resp = await fetch(`${API_URL}/product`);
+    const resp = await fetch(`${API_URL}/product`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in produkter");
@@ -157,7 +173,9 @@ export const getProducts = async (): Promise<Produkt[]> => {
 //Funktion för att hämta in event
 export const getEvents = async (): Promise<Event[]> => {
 
-    const resp = await fetch(`${API_URL}/event`);
+    const resp = await fetch(`${API_URL}/event`, {
+      next: {revalidate: 60}
+    });
 
     if(!resp.ok) {
       throw new Error("Något gick fel med att läsa in events");
