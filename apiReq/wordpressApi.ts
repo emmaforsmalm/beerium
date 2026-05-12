@@ -1,4 +1,5 @@
 //Importera typer för sidor och poster
+import { checkImg } from "@/functions/FilterFunctions";
 import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer } from "@/types/wordpress.types";
 
 //Hämta in URL för api
@@ -161,7 +162,7 @@ export const getProducts = async (): Promise<Produkt[]> => {
       
       const products = await Promise.all(
         data.map(async (product: Produkt) => {
-          const productImgUrl = await getMedia(product.acf.produkt_bild);
+          const productImgUrl = await checkImg(product.acf.produkt_bild, "/placeholderDark.png");
           return {...product, productImgUrl}
         })
       )

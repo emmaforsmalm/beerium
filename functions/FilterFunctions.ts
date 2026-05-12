@@ -1,5 +1,6 @@
 import { Event, Produkt } from "@/types/wordpress.types";
 import { parseDate } from "./DateFunctions";
+import { getMedia } from "@/apiReq/wordpressApi";
 
 //Hämta näst kommande event
 export const getLatestEvent = (events: Event[]) => {
@@ -19,3 +20,12 @@ export const getLatestEvent = (events: Event[]) => {
 export const getLatestProducts = (products: Produkt[]) => {
     return products.slice(0,3);
 }
+
+//Hämta bild från API eller använd default
+   export const checkImg = async (imgUrl: number | null, defaultImg: string) => {
+        if (!imgUrl) {
+          return defaultImg;
+        } else {
+          return await getMedia(imgUrl);
+        }
+    }

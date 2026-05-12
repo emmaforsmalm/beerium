@@ -8,12 +8,13 @@ import { getMemberPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./medlem.module.scss";
 import { Metadata } from "next";
+import { checkImg } from "@/functions/FilterFunctions";
 
 export default async function Member() {
 
     const page = await getMemberPage();
   
-    const imgUrlHeader = await getMedia(page.acf.header_bild);
+    const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
 
   return (
     <div>
@@ -22,6 +23,12 @@ export default async function Member() {
           <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
         <h1>{page.acf.medlem_sidtitel}</h1>
         <p>{page.acf.medlem_tagline}</p>          
+        </div>
+
+                <div>
+          {!page && (
+            <p className="notLoadedPage">Något gick fel...</p>
+          )}
         </div>
 
         <div className={styles.memberDiv}>

@@ -13,21 +13,22 @@ import EventComponent from "@/components/EventComponent";
 //Importera funktioner för att hantera datum
 import { parseDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
+import { checkImg } from "@/functions/FilterFunctions";
 
 export default async function Home() {
 
     const page = await getCalendarPage();
     const events = await getEvents();
+
+        const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
+        const imgUrlEventOne = await checkImg(page.acf.event_bild_ett, "/calendarImg.jpg");      
+        const imgUrlEventTwo = await checkImg(page.acf.event_bild_tva, "/calendarImg.jpg");   
+        const imgUrlEventThree = await checkImg(page.acf.event_bild_tre, "/calendarImg.jpg");      
+        const imgUrlEventFour = await checkImg(page.acf.event_bild_fyra, "/calendarImg.jpg");
+        const imgUrlEventFive = await checkImg(page.acf.event_bild_fem, "/calendarImg.jpg");
+        const imgUrlEventSix = await checkImg(page.acf.event_bild_sex, "/calendarImg.jpg");
+    
   
-    const imgUrlHeader = await getMedia(page.acf.header_bild);
-    const imgUrlEventOne = await getMedia(page.acf.event_bild_ett);
-    const imgUrlEventTwo = await getMedia(page.acf.event_bild_tva);
-    const imgUrlEventThree = await getMedia(page.acf.event_bild_tre);
-    const imgUrlEventFour = await getMedia(page.acf.event_bild_fyra);
-    const imgUrlEventFive = await getMedia(page.acf.event_bild_fem);
-    const imgUrlEventSix = await getMedia(page.acf.event_bild_sex);
-
-
 
   return (
     <div>
@@ -37,15 +38,31 @@ export default async function Home() {
         <h1>{page.acf.kalender_titel}</h1>          
         </div>
 
+        <div>
+          {!page && (
+            <p className="notLoadedPage">Något gick fel...</p>
+          )}
+        </div>
+
+                  {!events && (
+                    <div>
+            <p className="notLoadedPage">Inga evenemang hittades...</p>
+        </div>
+          )}
+
+          {events && (
         <div className={styles.calenderContent}>
           {events.sort((a, b) => parseDate(a.acf.start_datum).getTime() - parseDate(b.acf.start_datum).getTime())
           .map((event) => (
             <div key={event.id}>
               <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} />
-              
             </div>
           ))}
-        </div>
+        </div>            
+          )}
+
+
+
 
         <div className={styles.highlights}>
           <h2>{page.acf.bild_titel}</h2>

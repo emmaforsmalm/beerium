@@ -9,6 +9,7 @@ import { getSortimentPage, getMedia, getProducts } from "@/apiReq/wordpressApi";
 import styles from "./sortiment.module.scss";
 import ProductComponent from "@/components/ProductComponent";
 import { Metadata } from "next";
+import { checkImg } from "@/functions/FilterFunctions";
 
 export default async function Sortiment() {
 
@@ -16,8 +17,8 @@ export default async function Sortiment() {
   const products = await getProducts();
 
 
-  const imgUrlHeader = await getMedia(page.acf.header_bild);
-  const imgUrlSystembolaget = await getMedia(page.acf.systembolaget_bild);
+  const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
+  const imgUrlSystembolaget = await checkImg(page.acf.systembolaget_bild, "/systembolaget.png");
   
 
   return (
@@ -29,11 +30,26 @@ export default async function Sortiment() {
           <p>{page.acf.sid_tagline}</p>          
         </div>
 
+                <div>
+          {!page && (
+            <p className="notLoadedPage">Något gick fel...</p>
+          )}
+        </div>
+
+                  {!products && (
+                            <div>
+                    <p className="notLoadedPage">Inga produkter hittades...</p>
+                </div>
+                  )}
+
+{products &&(
         <div className={styles.productDiv}>
           {products.map((product) => (
               <ProductComponent key={product.id} img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
           ))}
-        </div>
+        </div>  
+)}
+
 
         <div className={styles.systembolagetDiv}>
           <h2>{page.acf.sortiment_titel}</h2>

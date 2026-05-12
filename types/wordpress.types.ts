@@ -152,8 +152,8 @@ export interface Event {
         slut_datum: string;
         event_plats: string;
         event_titel: string;
-        event_info: string;
-        event_lank: string;
+        event_info?: string;
+        event_lank?: string;
     };
 }
 

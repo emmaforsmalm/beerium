@@ -11,13 +11,14 @@ import styles from "./omoss.module.scss";
 //Importera kontaktformulärs-komponent
 import ContactForm from "@/components/ContactForm";
 import { Metadata } from "next";
+import { checkImg } from "@/functions/FilterFunctions";
 
 
 export default async function About() {
 
   const page = await getAboutPage();
 
-  const imgUrlHeader = await getMedia(page.acf.header_bild);
+  const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
 
   return (
     <div>
@@ -26,6 +27,12 @@ export default async function About() {
           <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
           <h1>{page.acf.om_oss_titel}</h1>
           <p>{page.acf.om_oss_text}</p>
+        </div>
+
+              <div>
+          {!page && (
+            <p className="notLoadedPage">Något gick fel...</p>
+          )}
         </div>
 
         <div className={styles.contact}>

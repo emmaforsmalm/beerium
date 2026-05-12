@@ -82,6 +82,12 @@ body {
     }
 }
 
+.notLoadedPage {
+    font-family: $poppins;
+    color: $main-beige;
+    text-align: center;
+}
+
 
 //Anpassningar till stora skärmar
 @media (min-width: 1500px) {
