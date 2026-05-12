@@ -1,3 +1,4 @@
+
 export const metadata: Metadata = {
   title: "Medlem - Beerium",
   description: "Bli en del av Beerium som kraftölskamrat"
@@ -9,7 +10,7 @@ import { getMemberPage, getMedia } from "@/apiReq/wordpressApi";
 import styles from "./medlem.module.scss";
 import { Metadata } from "next";
 import { checkImg } from "@/functions/FilterFunctions";
-import { useState } from "react";
+import MemberForm from "@/components/MemberForm";
 
 export default async function Member() {
 
@@ -17,8 +18,7 @@ export default async function Member() {
   
     const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+
 
   return (
     <div>
@@ -35,15 +35,7 @@ export default async function Member() {
           )}
         </div>
 
-        <div>
-          <label htmlFor="name">Namn:</label>
-          <input type="text" id="name" name="name" placeholder="För- och efternamn..." value={name} onChange={(e) => setName(e.target.value)}></input>
-
-          <label htmlFor="email">E-post:</label>
-          <input type="email" id="email" name="email" placeholder="Din e-postadress..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
-
-          <input type="submit" value="Betala"></input>
-        </div>
+        <MemberForm />
 
         <div className={styles.memberDiv}>
           <h2>{page.acf.medlem_text_titel}</h2>
