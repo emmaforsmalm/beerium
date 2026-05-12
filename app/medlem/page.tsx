@@ -9,12 +9,16 @@ import { getMemberPage, getMedia } from "@/apiReq/wordpressApi";
 import styles from "./medlem.module.scss";
 import { Metadata } from "next";
 import { checkImg } from "@/functions/FilterFunctions";
+import { useState } from "react";
 
 export default async function Member() {
 
     const page = await getMemberPage();
   
     const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
   return (
     <div>
@@ -29,6 +33,16 @@ export default async function Member() {
           {!page && (
             <p className="notLoadedPage">Något gick fel...</p>
           )}
+        </div>
+
+        <div>
+          <label htmlFor="name">Namn:</label>
+          <input type="text" id="name" name="name" placeholder="För- och efternamn..." value={name} onChange={(e) => setName(e.target.value)}></input>
+
+          <label htmlFor="email">E-post:</label>
+          <input type="email" id="email" name="email" placeholder="Din e-postadress..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
+
+          <input type="submit" value="Betala"></input>
         </div>
 
         <div className={styles.memberDiv}>
