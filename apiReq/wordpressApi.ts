@@ -1,9 +1,10 @@
 //Importera typer för sidor och poster
 import { checkImg } from "@/functions/FilterFunctions";
-import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer } from "@/types/wordpress.types";
+import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember } from "@/types/wordpress.types";
+import { NextResponse } from "next/server";
 
 //Hämta in URL för api
-const API_URL = process.env.WORDPRESS_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 const FORM_URL = process.env.NEXT_PUBLIC_WP_URL;
 
 //Funktion för att hämta in startsidan
@@ -174,6 +175,8 @@ export const getProducts = async (): Promise<Produkt[]> => {
 //Funktion för att hämta in event
 export const getEvents = async (): Promise<Event[]> => {
 
+  console.log(API_URL);
+
     const resp = await fetch(`${API_URL}/event`, {
       next: {revalidate: 60}
     });
@@ -184,4 +187,51 @@ export const getEvents = async (): Promise<Event[]> => {
       const data = await resp.json();
       return data;
     }
+}
+
+//funktion för att skapa en ny medlem
+export const postMember = async (reference:string, memberName: string, email: string): Promise<void> => {
+
+  console.log(API_URL);
+  const resp = await fetch(`${API_URL}/member`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + Buffer.from(`${process.env.NEXT_PUBLIC_WP_Profile_User}:${process.env.NEXT_PUBLIC_WP_Profile_Password}`).toString('base64'),
+    },
+    body: JSON.stringify({
+      title: reference,
+      status: 'publish',
+      acf: {
+        member_name: memberName,
+        member_email: email,
+        member_reference: reference,
+        member_payment: "ej betald",
+        member_welcome_email: "ej skickat",
+        member_merch: "ej skickat",
+      },
+    }),
+  });
+
+    const data = await resp.json();
+
+  if(!resp.ok) {
+    throw new Error ("Det gick inte att skapa en ny medlem");
+
+
+  }
+}
+
+export const getQr = async(reference:string) => {
+  const resp = await fetch("/api/swish", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({reference}),
+  });
+
+  const data = await resp.json();
+
+  return data.qrCode;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { getQr, postMember } from "@/apiReq/wordpressApi";
 import { getReference } from "@/functions/memberFunctions";
 import { useState } from "react";
 
@@ -11,16 +12,39 @@ export default function MemberForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [qrCode, setQrCode] = useState("");
 
-    const becomeMember = ((event: any) => {
+    const becomeMember = async (event: any) => {
       event.preventDefault();
+
+      try {
       setLoading(true);
+      setError("");
 
-      const reference = getReference();
+      const newReference = getReference();
 
-      console.log(reference);
+      console.log("creating member");
 
-    })
+      await postMember(newReference, name, email);
+
+      console.log("member created")
+
+
+      const qr = await getQr(newReference);
+      setQrCode(qr);
+
+      console.log("qr created");
+
+      } catch (error) {
+        console.error(error);
+        setError("Något gick fel")
+      } finally {
+        setLoading (false);
+      }
+
+
+    }
 
 return (
     <div>
@@ -35,5 +59,10 @@ return (
           <input type="submit" value="Betala"></input>
           </form>          
         </div>
+
+        {qrCode && (
+            <img src={qrCode} alt="Swish QR-kod"></img>
+        )}
+
     </div>
 )}

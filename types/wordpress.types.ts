@@ -205,6 +205,15 @@ export interface Footer {
     };
 }
 
+export interface newMember {
+    memberName: string; 
+    email: string;
+    reference: string;
+    payStatus: string;
+    welcomeEmail: string;
+    merch: string;
+}
+
 
 
 
