@@ -1,6 +1,6 @@
 //Importera typer för sidor och poster
 import { checkImg } from "@/functions/FilterFunctions";
-import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember } from "@/types/wordpress.types";
+import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember, Payment } from "@/types/wordpress.types";
 import { NextResponse } from "next/server";
 
 //Hämta in URL för api
@@ -120,7 +120,7 @@ export const getMedia = async (id: number): Promise<string> => {
 
 }
 
-//Funktion för att hämta in kontaktformulär 
+//Funktion för att skicka in kontaktformulär 
 export const sendContactForm = async (name: string, email: string, subject: string, message: string) => {
   
   console.log('Form url:', FORM_URL);
@@ -234,4 +234,20 @@ export const getQr = async(reference:string) => {
   const data = await resp.json();
 
   return data.qrCode;
+}
+
+//Funktion för att hämta in footer
+export const getPaymentInfo = async (): Promise<Payment> => {
+
+    const resp = await fetch(`${API_URL}/pages?slug=betalningssida`, {
+      next: {revalidate: 60}
+    });
+
+    if(!resp.ok) {
+      throw new Error("Något gick fel med att läsa in betalningssidan");
+    } else {
+      const data = await resp.json();
+
+      return data[0];
+    }
 }

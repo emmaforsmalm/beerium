@@ -1,0 +1,43 @@
+
+$main-grey: #292929;
+$main-beige: #F1E9DC;
+$main-orange: #F05A22;
+$main-brown: #723C14;
+
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+$second-heading: var(--font-outfit);
+
+
+.paymentDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: $poppins;
+    color: $main-beige;
+    text-align: center;
+
+    .reference {
+        font-size: 130%;
+        margin-top: 10px;
+    }
+
+    .instructions {
+        width: 85%;
+    }
+}
+
+.qrCodeImg {
+    display: block; 
+    margin: 0 auto;
+    border: 5px solid white;
+    border-radius: 15px;
+}
+
+.goBackLink {
+    color: $main-orange;
+    text-underline-offset: 5px;
+
+}

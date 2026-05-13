@@ -214,6 +214,14 @@ export interface newMember {
     merch: string;
 }
 
+export interface Payment {
+    payment_title: string; 
+    payment_info: string;
+    reference_text: string;
+    contact_info: string;
+    link_text: string;
+}
+
 
 
 
