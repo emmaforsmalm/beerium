@@ -3,7 +3,8 @@
 import { getQr, postMember } from "@/apiReq/wordpressApi";
 import { getReference } from "@/functions/memberFunctions";
 import { useState } from "react";
-
+import './memberForm.scss';
+import router from "next/router";
 
 export default function MemberForm() {
 
@@ -24,17 +25,15 @@ export default function MemberForm() {
 
       const newReference = getReference();
 
-      console.log("creating member");
-
       await postMember(newReference, name, email);
-
-      console.log("member created")
-
 
       const qr = await getQr(newReference);
       setQrCode(qr);
 
-      console.log("qr created");
+      //Spara qr och referensnummer i sessionStorage
+      sessionStorage.setItem("qrCode", qr);
+      sessionStorage.setItem("reference", newReference);
+      router.push("/betalning");
 
       } catch (error) {
         console.error(error);
@@ -48,21 +47,26 @@ export default function MemberForm() {
 
 return (
     <div>
-        <div>
+        <div className="memberForm">
+            <h2>Medlemsformulär</h2>
           <form onSubmit={becomeMember}>
           <label htmlFor="name">Namn:</label>
-          <input type="text" id="name" name="name" placeholder="För- och efternamn..." value={name} onChange={(e) => setName(e.target.value)}></input>
+          <input type="text" id="name" name="name" required placeholder="För- och efternamn..." value={name} onChange={(e) => setName(e.target.value)}></input>
 
           <label htmlFor="email">E-post:</label>
-          <input type="email" id="email" name="email" placeholder="Din e-postadress..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
+          <input type="email" id="email" name="email" required placeholder="Din e-postadress..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
 
           <input type="submit" value="Betala"></input>
           </form>          
-        </div>
 
+            <div className="qrCode">
         {qrCode && (
-            <img src={qrCode} alt="Swish QR-kod"></img>
-        )}
+            <img src={qrCode} className="qrCodeImg" alt="Swish QR-kod"></img>
+        )}          
+
+        <p>Skanna QR-koden med Swish-appen för att genomföra betalningen. <br/> <br/> När betalningen är genomförd kan rutan stängas</p>
+        </div>
+</div>
 
     </div>
 )}

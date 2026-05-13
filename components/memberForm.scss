@@ -1,0 +1,105 @@
+$main-grey: #292929;
+$main-beige: #F1E9DC;
+$main-orange: #F05A22;
+$main-brown: #723C14;
+$main-green: #8d9a72;
+
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+$second-heading: var(--font-outfit);
+
+
+.memberForm {
+    border: 2px solid $main-beige;
+    border-radius: 10px;
+    width: 600px;
+    color: $main-beige;
+    margin: 0 auto;
+    font-family: $poppins;
+    font-size: 80%;
+    margin-bottom: 100px;
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: 190%;
+        font-family: $second-heading;
+        text-align: center;
+    }
+    
+    label {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        color: $main-beige;
+        font-family: $poppins;
+        font-size: 115%;
+        margin-bottom: 4px;
+        margin-top: 15px;
+    }
+     input {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: $main-beige;
+        width: 50%;
+        border: none;
+        border-radius: 10px;
+        color: black;
+        font-family: $poppins;
+     }
+
+     input[type=submit] {
+        width: 100px;
+        background-color: $main-grey;
+        border: 2px solid $main-beige;
+        color: $main-beige;
+        padding: 7px;
+        font-family: $poppins;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        &:hover {
+            background-color: $main-beige;
+            color: black;
+            cursor: pointer;
+        }
+     }
+
+     .qrCode {
+        width: 400px;
+        display: block;
+        margin: 0 auto;
+        height: 500px;
+        border: 2px solid $main-beige;
+        border-radius: 10px;
+        margin-bottom: 50px;
+
+        img{
+        display: block;
+        width: 300px;
+        margin: 0 auto;      
+        margin-top: 20px;      
+        margin-bottom: 20px;  
+        border: 5px solid white;
+        border-radius: 10px;
+        }
+
+        p {
+            font-family: $poppins;
+            font-size: 120%;
+            text-align: center;
+            margin: 20px;
+        }
+     }
+
+    }
+
