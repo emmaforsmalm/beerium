@@ -4,11 +4,11 @@ import { getQr, postMember } from "@/apiReq/wordpressApi";
 import { getReference } from "@/functions/memberFunctions";
 import { useState } from "react";
 import './memberForm.scss';
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function MemberForm() {
 
-    
+    const router = useRouter();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -59,13 +59,6 @@ return (
           <input type="submit" value="Betala"></input>
           </form>          
 
-            <div className="qrCode">
-        {qrCode && (
-            <img src={qrCode} className="qrCodeImg" alt="Swish QR-kod"></img>
-        )}          
-
-        <p>Skanna QR-koden med Swish-appen för att genomföra betalningen. <br/> <br/> När betalningen är genomförd kan rutan stängas</p>
-        </div>
 </div>
 
     </div>
