@@ -15,6 +15,7 @@ export default function MemberForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [qrCode, setQrCode] = useState("");
+    const[buttonLoading, setButtonLoading] = useState(false);
 
     const becomeMember = async (event: any) => {
       event.preventDefault();
@@ -22,6 +23,7 @@ export default function MemberForm() {
       try {
       setLoading(true);
       setError("");
+      setButtonLoading(true);
 
       const newReference = getReference();
 
@@ -40,6 +42,7 @@ export default function MemberForm() {
         setError("Något gick fel")
       } finally {
         setLoading (false);
+        setButtonLoading(false);
       }
 
 
@@ -56,7 +59,7 @@ return (
           <label htmlFor="email">E-post:</label>
           <input type="email" id="email" name="email" required placeholder="Din e-postadress..." value={email} onChange={(e) => setEmail(e.target.value)}></input>
 
-          <input type="submit" value="Betala"></input>
+          <button type="submit">{buttonLoading ? "Laddar..." : "Bli medlem"}</button>
           </form>          
 
 </div>

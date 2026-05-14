@@ -215,11 +215,24 @@ export interface newMember {
 }
 
 export interface Payment {
+    id: number;
+    slug: string;
+    title: {
+        rendered: string;
+    };
+    content: {
+        rendered: string;
+    };
+    excerpt: {
+        rendered: string;
+    };
+    acf: {
     payment_title: string; 
     payment_info: string;
     reference_text: string;
     contact_info: string;
     link_text: string;
+    };
 }
 
 

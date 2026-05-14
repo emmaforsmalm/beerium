@@ -54,10 +54,11 @@ $second-heading: var(--font-outfit);
         font-family: $poppins;
      }
 
-     input[type=submit] {
+     button[type=submit] {
         width: 100px;
         background-color: $main-grey;
         border: 2px solid $main-beige;
+        border-radius: 10px;
         color: $main-beige;
         padding: 7px;
         font-family: $poppins;
