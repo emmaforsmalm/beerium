@@ -13,12 +13,14 @@ import EventComponent from "@/components/EventComponent";
 //Importera funktioner för att hantera datum
 import { parseDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
-import { checkImg } from "@/functions/FilterFunctions";
+import { checkImg, findPassedEvents } from "@/functions/FilterFunctions";
 
 export default async function Home() {
 
     const page = await getCalendarPage();
     const events = await getEvents();
+
+    const passedEvents = await findPassedEvents(events);
 
         const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
         const imgUrlEventOne = await checkImg(page.acf.event_bild_ett, "/calendarImg.jpg");      

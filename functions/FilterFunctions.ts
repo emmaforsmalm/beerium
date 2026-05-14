@@ -24,7 +24,7 @@ export const findPassedEvents = (events: Event[]) => {
 
   //Filtrera på event som har passerat
   return events
-  .filter((event) => parseDate(event.acf.slut_datum).getTime() >= today.getTime())
+  .filter((event) => parseDate(event.acf.slut_datum).getTime() < today.getTime());
 }
 
 //Hämta in senaste produkterna
