@@ -10,7 +10,7 @@ $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
 
-.eventComponentDiv {
+.eventComponentDiv, .eventPassed {
     display: flex;
     justify-content: flex-start;
     width: 450px;
@@ -79,9 +79,20 @@ $second-heading: var(--font-outfit);
     }
 }
 
+.eventPassed {
+
+    h2, .eventDate, .eventPlace {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: $main-green;        
+    }
+}
+
+
+
 //Anpassningar till stora skärmar
 @media (min-width: 1500px) {
-.eventComponentDiv{
+.eventComponentDiv, .eventPassed{
 width: 500px;
 
 h2 {
@@ -109,13 +120,13 @@ h2 {
 
 
 @media (max-width: 700px) {
-.eventComponentDiv{
+.eventComponentDiv, .eventPassed{
 width: 400px;
 }
 }
 
 @media (max-width: 500px) {
-    .eventComponentDiv {
+    .eventComponentDiv, .eventPassed {
         width: 250px;
     }
 }

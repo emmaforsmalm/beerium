@@ -55,11 +55,16 @@ export default async function Home() {
           {events && (
         <div className={styles.calenderContent}>
           {events.sort((a, b) => parseDate(a.acf.start_datum).getTime() - parseDate(b.acf.start_datum).getTime())
-          .map((event) => (
+          .map((event) => { 
+
+            //Kolla om ett event har passerat
+            const isPassed = passedEvents.some((e) => e.id === event.id);
+
+            return (
             <div key={event.id}>
-              <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} />
+              <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} isPassed={isPassed} />
             </div>
-          ))}
+)})}
         </div>            
           )}
 

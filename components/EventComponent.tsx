@@ -12,9 +12,10 @@ type EventProps = {
     place: string;
     info?: string;
     link?: string;
+    isPassed: boolean;
 }
 
-export default function EventComponent ({title, startDate, endDate, place, info, link}: EventProps) {
+export default function EventComponent ({title, startDate, endDate, place, info, link, isPassed}: EventProps) {
 
     const [show, setShow] = useState(false);
 
@@ -23,7 +24,7 @@ export default function EventComponent ({title, startDate, endDate, place, info,
     }
 
     return (        
-        <div className='eventComponentDiv'>
+        <div className={isPassed ? 'eventPassed' : 'eventComponentDiv'}>
               <p className='eventDate'>{formatEventDate(startDate, endDate)}</p>
               <div className='eventContent'>
               <h2>{title}</h2>  
