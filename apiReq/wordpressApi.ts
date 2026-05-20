@@ -123,9 +123,6 @@ export const getMedia = async (id: number): Promise<string> => {
 //Funktion för att skicka in kontaktformulär 
 export const sendContactForm = async (name: string, email: string, subject: string, message: string) => {
   
-  console.log('Form url:', FORM_URL);
-  console.log('full url:', `${FORM_URL}/6/feedback`);
-
   const formData = new FormData();
   formData.append('your-name', name);
   formData.append('your-email', email);
@@ -140,7 +137,6 @@ export const sendContactForm = async (name: string, email: string, subject: stri
   });
 
   const data = await resp.json();
-  console.log("data:", data);
 
   if (data.status !== 'mail_sent') {
     throw new Error(data.message || 'Något gick fel');
@@ -222,6 +218,8 @@ export const postMember = async (reference:string, memberName: string, email: st
   }
 }
 
+
+//Hämta in en QR-kod
 export const getQr = async(reference:string) => {
   const resp = await fetch("/api/swish", {
     method: 'POST',
