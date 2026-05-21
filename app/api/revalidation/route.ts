@@ -1,17 +1,23 @@
-export default async function handler(req: any,res: any) {
-    if (req.query.secret !== process.env.REVALIDATE_SECRET) {
-        return res.status(401).json({message: 'Invalid token'});
+import { revalidatePath } from "next/cache";
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+
+    const secret = req.nextUrl.searchParams.get('secret');
+
+    if (secret !== process.env.REVALIDATE_SECRET) {
+        return Response.json({message: 'Invalid token'}, {status: 401});
     }
 
     try {
-        await res.revalidate('/');
-        await res.revalidate('/sortiment');
-        await res.revalidate('/omoss');
-        await res.revalidate('/kalender');
-        await res.revalidate('/medlem');
-        return res.json({revalidated: true});
+        revalidatePath('/');
+        revalidatePath('/sortiment');
+        revalidatePath('/omoss');
+        revalidatePath('/kalender');
+        revalidatePath('/medlem');
+        return Response.json({revalidated: true});
     } catch (err) {
-        return res.status(500).send('Error revalidating');
+        return Response.json({message :'Error revalidating'}, {status:500});
     }
 }
 
