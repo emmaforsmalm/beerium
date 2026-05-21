@@ -16,17 +16,6 @@ export const getLatestEvent = (events: Event[]) => {
 
 }
 
-//Filtrera passerade event
-export const findPassedEvents = (events: Event[]) => {
-
-  //Hämta in dagens datum
-  const today = new Date();
-
-  //Filtrera på event som har passerat
-  return events
-  .filter((event) => parseDate(event.acf.slut_datum).getTime() < today.getTime());
-}
-
 //Hämta in senaste produkterna
 export const getLatestProducts = (products: Produkt[]) => {
     return products.slice(0,3);

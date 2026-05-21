@@ -12,12 +12,13 @@ type EventProps = {
     place: string;
     info?: string;
     link?: string;
-    isPassed: boolean;
 }
 
-export default function EventComponent ({title, startDate, endDate, place, info, link, isPassed}: EventProps) {
+export default function EventComponent ({title, startDate, endDate, place, info, link}: EventProps) {
 
     const [show, setShow] = useState(false);
+
+    const isPassed = new Date(endDate) < new Date();
 
     const toggleShow = () => {
         setShow(!show);

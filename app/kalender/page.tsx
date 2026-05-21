@@ -13,14 +13,12 @@ import EventComponent from "@/components/EventComponent";
 //Importera funktioner för att hantera datum
 import { parseDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
-import { checkImg, findPassedEvents } from "@/functions/FilterFunctions";
+import { checkImg} from "@/functions/FilterFunctions";
 
 export default async function Home() {
 
     const page = await getCalendarPage();
     const events = await getEvents();
-
-    const passedEvents = await findPassedEvents(events);
 
         const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
         const imgUrlEventOne = await checkImg(page.acf.event_bild_ett, "/calendarImg.jpg");      
@@ -57,12 +55,9 @@ export default async function Home() {
           {events.sort((a, b) => parseDate(a.acf.start_datum).getTime() - parseDate(b.acf.start_datum).getTime())
           .map((event) => { 
 
-            //Kolla om ett event har passerat
-            const isPassed = passedEvents.some((e) => e.id === event.id);
-
             return (
             <div key={event.id}>
-              <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} isPassed={isPassed} />
+              <EventComponent title={event.acf.event_titel} place={event.acf.event_plats} startDate={event.acf.start_datum} endDate={event.acf.slut_datum} info={event.acf.event_info} link={event.acf.event_lank} />
             </div>
 )})}
         </div>            
