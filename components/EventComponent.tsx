@@ -1,6 +1,6 @@
 'use client';
 
-import { formatEventDate } from '@/functions/DateFunctions';
+import { formatEventDate, parseDate } from '@/functions/DateFunctions';
 import './eventComponent.scss';
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ export default function EventComponent ({title, startDate, endDate, place, info,
 
     const [show, setShow] = useState(false);
 
-    const isPassed = new Date(endDate) < new Date();
+    const isPassed = parseDate(endDate) < new Date();
 
     const toggleShow = () => {
         setShow(!show);
