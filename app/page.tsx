@@ -54,7 +54,7 @@ export default async function Home() {
           <div className={styles.aboutContent}>
             <h2>{page.acf.om_oss_titel}</h2>
             <p>{page.acf.om_oss_text}</p>   
-            <Link className={styles.aboutLink} href="/sortiment">Läs mer om oss</Link>         
+            <Link className={styles.aboutLink} href="/omoss">Läs mer om oss</Link>         
           </div>
 
         </div>
