@@ -12,6 +12,11 @@ const azoSans = localFont({
   variable: '--font-azo-sans',
 })
 
+const breathing = localFont({
+  src: './fonts/BreathingRegular.ttf',
+  variable: '--font-breathing',
+})
+
 
 const poppins = Poppins ({
   subsets: ['latin'],

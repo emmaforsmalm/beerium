@@ -107,7 +107,7 @@ $second-heading: var(--font-outfit);
 
         p {
             font-size: 160%;
-            color: black;
+            color: $main-orange;
             margin-top: 20px;
         }
     }
@@ -148,6 +148,7 @@ $second-heading: var(--font-outfit);
         max-width: 400px;
         margin-top: 100px;
         margin-bottom: 100px;
+        
     }
 
 }

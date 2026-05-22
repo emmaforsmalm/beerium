@@ -63,9 +63,14 @@ export default async function Home() {
           <h2>{page.acf.nasta_event_titel}</h2>
           {nextEvent && (
             <div className={styles.eventContentDiv} key={nextEvent.id}>
-              <p className={styles.eventDate}>{nextEventDate}</p>
+              <div className={styles.eventDateDiv}>
+              <p className={styles.eventDate}>{nextEventDate}</p>                
+              </div>
+              <div className={styles.eventDescriptionDiv}>
               <p className={styles.eventTitle}>{nextEvent.acf.event_titel}</p>
-              <p className={styles.eventPlace}>{nextEvent.acf.event_plats}</p>
+              <p className={styles.eventPlace}><span className="material-symbols-outlined locationIcon">location_on</span>{nextEvent.acf.event_plats}</p>                
+              </div>
+
           </div>)}
           {!nextEvent && !nextEventDate && (
             <p className={styles.noEvent}>{page.acf.inget_nasta_event}</p>

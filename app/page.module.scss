@@ -3,6 +3,7 @@ $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
 $main-brown: #723C14;
+$main-green: #8d9a72;
 
 $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
@@ -116,23 +117,27 @@ $second-heading: var(--font-outfit);
 //Design för kalendersektion på startsidan
 .eventDiv {
 
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    background-color: darken($main-grey, 5%);
+    padding: 20px;
+
 
     .eventContentDiv {
-        border: 2px solid $main-beige;
         border-radius: 10px;
         width: 45%;
         margin: 0 auto;
         margin-bottom: 30px;
         padding: 10px;
         text-align: center;
+        display: flex;   
+        justify-content: center;     
     }
 
     h2 {
     color: $main-beige;
     text-align: center;
     font-family: $second-heading;
-    font-size: 180%;
+    font-size: 200%;
     letter-spacing: 0.05em;         
     margin-bottom: 30px;
     }
@@ -158,17 +163,40 @@ $second-heading: var(--font-outfit);
         }
     }
 
+    .eventDateDiv {
+        border: 2px solid $main-green;
+        border-radius: 50%;
+        padding-right: 35px;
+        padding-left: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 80px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        transform: rotate(-15deg);
+        margin-right: 50px;        
+
+    }
+
+    .eventDescriptionDiv {
+        border-left: 2px solid $main-green;
+        padding-left: 50px;
+    }
+
     .eventDate {
         color: $main-beige;
         font-family: $second-heading;
         font-size: 140%;
-        margin-bottom: -5px;
+        transform: rotate(15deg);
+
     }
 
     .eventTitle {
         color: $main-beige;
         font-family: $poppins;
-        font-size: 120%;
+        font-size: 130%;
         margin-bottom: -10px;
     }
 
@@ -176,6 +204,16 @@ $second-heading: var(--font-outfit);
         color: $main-beige;
         font-family: $poppins;
         font-size: 120%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $main-green;
+
+
+
+        .material-symbols-outlined {
+            vertical-align: middle;           
+        }
     }
 }
 
@@ -183,13 +221,17 @@ $second-heading: var(--font-outfit);
 .productDiv {
     margin-bottom: 100px;
 
+
     h2 {
-    color: $main-beige;
+    color: $main-grey;
     text-align: center;
     font-family: $second-heading;
-    font-size: 180%;
+    font-size: 230%;
     letter-spacing: 0.05em;         
-    margin-bottom: 30px;
+    background-color: $main-beige;    
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin-bottom: 0px;
     }
      
     .productsLink {
@@ -249,6 +291,7 @@ $second-heading: var(--font-outfit);
     justify-content: center;
     background-color: $main-beige;
     margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
 .latestProducts{
