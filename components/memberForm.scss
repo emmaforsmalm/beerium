@@ -104,3 +104,15 @@ $second-heading: var(--font-outfit);
 
     }
 
+    @media(max-width: 700px) {
+        .memberForm {
+            width: 400px;
+        }
+    }
+
+    @media(max-width: 500px) {
+        .memberForm {
+            width: 300px;
+        }
+    }
+

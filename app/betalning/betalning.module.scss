@@ -22,10 +22,19 @@ $second-heading: var(--font-outfit);
     .reference {
         font-size: 130%;
         margin-top: 10px;
+        width: 95%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 10px;
     }
 
     .instructions {
-        width: 85%;
+        width: 600px;
+    }
+
+    .questions {
+        width: 600px;
     }
 }
 
@@ -40,4 +49,19 @@ $second-heading: var(--font-outfit);
     color: $main-orange;
     text-underline-offset: 5px;
 
+}
+
+@media(max-width: 700px) {
+    .paymentDiv {
+        .instructions {
+            width: 95%;
+        }
+
+        .questions {
+            width: 90%;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+    }
 }

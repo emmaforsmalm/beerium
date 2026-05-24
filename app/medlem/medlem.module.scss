@@ -10,6 +10,9 @@ $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
 
 .header {
+
+    width: 100%;
+
     img {
         width: 100%;
     }
@@ -90,10 +93,12 @@ $second-heading: var(--font-outfit);
             margin-top: -45px;
         }
     }
+
 }
 
 @media (max-width: 500px) {
     .header {
+
         h1 {
             font-size: 210%;
             width: 80%;

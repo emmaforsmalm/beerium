@@ -9,6 +9,8 @@ $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
+$breathing: var(--font-breathing);
+$azoSansBlack: var(--font-azosansblack);
 
 
 //Design av header
@@ -19,16 +21,18 @@ $second-heading: var(--font-outfit);
     line-height: 0px;
 
     h1 {
-        font-family: $azoSans;
+        font-family: $azoSansBlack;
         color: $main-beige;
         font-size: 550%;
     }
 
     p {
-        font-family: $comforterBrush;
+        font-family: $breathing;
         color: $main-orange;
-        margin-top: -7px;
-        font-size: 450%;
+        margin-top: -32px;
+        font-size: 280%;
+        line-height: 1.2;
+        height: auto;
     }
 
 }
@@ -122,9 +126,9 @@ $second-heading: var(--font-outfit);
     padding: 20px;
 
 
+
     .eventContentDiv {
         border-radius: 10px;
-        width: 45%;
         margin: 0 auto;
         margin-bottom: 30px;
         padding: 10px;
@@ -171,7 +175,7 @@ $second-heading: var(--font-outfit);
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 90px;
+        width: 95px;
         height: 80px;
         padding-top: 7px;
         padding-bottom: 7px;
@@ -363,7 +367,7 @@ $second-heading: var(--font-outfit);
 .eventDiv {
 
     .eventContentDiv {
-        max-width: 550px;
+        max-width: 650px;
         width: 80%;
         margin: 0 auto;
         margin-bottom: 20px;
@@ -416,14 +420,14 @@ $second-heading: var(--font-outfit);
     }
 
     p {
-        font-size: 350%;
+        font-size: 210%;
     }
 }
 
 .eventDiv {
 
     .eventContentDiv {
-        max-width: 650px;
+        max-width: 700px;
         width: 90%;
     }
 }
@@ -473,12 +477,25 @@ margin: 8px;
     }
 
     p {
-        font-size: 300%;
+        font-size: 180%;
+        margin-top: -20px;
     }
 
     img {
         height: 180px;
     }
+}
+
+.productDiv {
+    h2 {
+    width: 80%;
+    display: block; 
+    margin: 0 auto;
+    padding-bottom: 30px;
+    margin-bottom: -20px;
+    border-radius: 10px;         
+    }
+
 }
 
 .mainProductList {
@@ -494,6 +511,36 @@ margin: 8px;
     .latestProducts {
 margin: 20px;
 }
+}
+
+.eventDiv {
+            align-items: center;
+        justify-content: center;
+    .eventContentDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .eventDescriptionDiv {
+        border: none;
+        border-top: 2px solid $main-green;
+        margin-top: 30px;
+        text-align: start;
+    }
+
+    .eventDateDiv {
+        width: 150px;
+        transform: rotate(0deg);
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+
+        .eventDate {
+            transform: rotate(0deg);
+        }
+    }
 }
 
 }
