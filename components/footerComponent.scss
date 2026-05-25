@@ -9,6 +9,8 @@ $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
+$breathing: var(--font-breathing);
+$azoSansBlack: var(--font-azosansblack);
 
 .footer {
     background-color: darken($main-grey, 8%);
@@ -41,16 +43,17 @@ $second-heading: var(--font-outfit);
 
     .footerTitle {
         color: $main-beige;
-        font-family: $azoSans;
+        font-family: $azoSansBlack;
         font-size: 130%;
     }
 
     .footerTagline {
         color: $main-orange;
-        font-family: $comforterBrush;
+        font-family: $breathing;
         font-synthesis: none;
-        font-size: 130%;
-        margin-top: -30px;
+        font-size: 100%;
+        margin-top: -33px;
+        min-height: 1.2em;
     }
 
     .footerTitleDiv {
@@ -58,6 +61,7 @@ $second-heading: var(--font-outfit);
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 80px;
     }
 
     .footerAdress, .footerEmail {

@@ -37,7 +37,7 @@ $estonia: var(--font-estonia);
     }
 
     img {
-
+        height: 100%;
         width: 100%;
     }
 
@@ -278,15 +278,16 @@ $estonia: var(--font-estonia);
     }
 
     .memberLink {
-        font-family: $breathing;
-        font-synthesis:none;
+        font-family: $poppins;
+        font-style: italic;
+        font-weight: 300;
         color: $main-orange;
         text-align: center;
         display: block;
         margin: 0 auto;
         text-decoration: none;
         font-size: 200%;
-        margin-top: -50px;
+        margin-top: -30px;
     }
 }
 
@@ -331,8 +332,10 @@ $estonia: var(--font-estonia);
 
     h4 {
         color: $main-orange;
-        font-family: $estonia;
-        font-size: 190%;
+        font-family: $poppins;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 125%;
         font-synthesis:none;
         margin-top: -30px;
         padding-left: 10px;

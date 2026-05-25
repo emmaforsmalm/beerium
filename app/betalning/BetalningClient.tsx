@@ -40,7 +40,7 @@ export default function Betalning({page}: {page:any}) {
             <div className={styles.qrCode}>
 
         {qr && (
-            <img src={qr} className={styles.qrCodeImg} alt="Swish QR-kod"></img>
+            <img src={qr} className={styles.qrCodeImg} alt="Swish QR-kod" width={200} height={200}></img>
         )}          
         { reference && (
             <p className={styles.reference}>{page.acf.reference_text} {reference}</p>

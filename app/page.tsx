@@ -39,7 +39,7 @@ export default async function Home() {
     <div>
       <main>
         <div className={styles.header}>
-          <Image className={styles.startHeader} src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
+          <Image className={styles.startHeader} src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw" loading="eager" priority={true} fetchPriority="high"/>
           <div className={styles.headTextDiv}>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>            

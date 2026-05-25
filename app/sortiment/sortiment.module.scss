@@ -9,6 +9,7 @@ $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
 $estonia: var(--font-estonia);
+$breathing: var(--font-breathing);
 
 .header {
 
@@ -27,9 +28,10 @@ $estonia: var(--font-estonia);
     p {
         color: $main-orange;
         text-align: center;
-        font-family: $comforterBrush;
-        font-size: 450%;
-        margin-top: -85px;
+        font-family: $breathing;
+        font-size: 400%;
+        margin-top: -60px;
+        line-height: 1.2;
     }
 }
 
@@ -133,8 +135,8 @@ $estonia: var(--font-estonia);
         }
 
         p {
-            font-size: 330%;
-            margin-top: -60px;
+            font-size: 300%;
+            margin-top: -50px;
         }
     }
 
@@ -169,7 +171,7 @@ $estonia: var(--font-estonia);
 
         p {
             font-size: 270%;
-            margin-top: -60px;
+            margin-top: -35px;
         }
     }
 
@@ -188,7 +190,7 @@ $estonia: var(--font-estonia);
             line-height: 40px;
         }
         p {
-            margin-top: -45px;           
+            margin-top: -30px;           
         }
     }
 
