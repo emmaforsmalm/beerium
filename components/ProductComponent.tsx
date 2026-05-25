@@ -2,16 +2,19 @@
 
 import './productComponent.scss';
 import { useState } from "react";
+import Image from 'next/image';
 
 type ProductProps = {
     img: string;
     alt: string;
+    width: number;
+    height: number;
     title: string;
     category: string;
     info: string;
 }
 
-export default function ProductComponent ({img, alt, title, category, info}: ProductProps) {
+export default function ProductComponent ({img, alt, width, height, title, category, info}: ProductProps) {
 
     const [show, setShow] = useState(false);
 
@@ -21,7 +24,7 @@ export default function ProductComponent ({img, alt, title, category, info}: Pro
 
     return (        
         <div className='productComponentDiv'>
-           <img src={img} alt={alt}></img>
+           <Image src={img} alt={alt} width={width} height={height} sizes="300px"/>
            <h2>{title}</h2>
            <h3>{category}</h3>
            {!show &&(

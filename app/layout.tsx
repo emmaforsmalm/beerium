@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import NavComponent from "@/components/NavComponent";
 
-import { Poppins, Comforter_Brush, Playfair_Display, Outfit} from "next/font/google";
+import { Poppins, Comforter_Brush, Outfit, Estonia} from "next/font/google";
 import localFont from 'next/font/local';
 import FooterComponent from "@/components/FooterComponent";
 
@@ -41,6 +41,12 @@ const outfit =  Outfit ({
   variable: '--font-outfit'
 });
 
+const estonia = Estonia({
+  subsets:['latin'],
+  weight: ['400'],
+  variable: '--font-estonia'
+})
+
 
 export default function RootLayout({
   children,
@@ -51,7 +57,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable} ${breathing.variable} ${azoSansBlack.variable}`}>
+    <html lang="sv" className={`${poppins.variable} ${azoSans.variable} ${comforterBrush.variable} ${outfit.variable} ${breathing.variable} ${azoSansBlack.variable} ${estonia.variable}`}>
       <head>
               <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>

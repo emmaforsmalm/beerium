@@ -174,7 +174,7 @@ export interface Produkt {
         produkt_bild: number;
         produkt_bild_beskrivning: string;
     };
-    productImgUrl: string;
+    productImgUrl: Media;
 }
 
 //Struktur för footer
@@ -233,6 +233,13 @@ export interface Payment {
     contact_info: string;
     link_text: string;
     };
+}
+
+export interface Media {
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
 }
 
 

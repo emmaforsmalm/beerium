@@ -9,24 +9,24 @@ import { getCalendarPage, getEvents, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./kalender.module.scss";
 import EventComponent from "@/components/EventComponent";
+import Image from "next/image";
 
 //Importera funktioner för att hantera datum
 import { parseDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
-import { checkImg} from "@/functions/FilterFunctions";
 
 export default async function Home() {
 
     const page = await getCalendarPage();
     const events = await getEvents();
 
-        const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
-        const imgUrlEventOne = await checkImg(page.acf.event_bild_ett, "/calendarImg.jpg");      
-        const imgUrlEventTwo = await checkImg(page.acf.event_bild_tva, "/calendarImg.jpg");   
-        const imgUrlEventThree = await checkImg(page.acf.event_bild_tre, "/calendarImg.jpg");      
-        const imgUrlEventFour = await checkImg(page.acf.event_bild_fyra, "/calendarImg.jpg");
-        const imgUrlEventFive = await checkImg(page.acf.event_bild_fem, "/calendarImg.jpg");
-        const imgUrlEventSix = await checkImg(page.acf.event_bild_sex, "/calendarImg.jpg");
+        const imgUrlHeader = await getMedia(page.acf.header_bild);
+        const imgUrlEventOne = await getMedia(page.acf.event_bild_ett);      
+        const imgUrlEventTwo = await getMedia(page.acf.event_bild_tva);   
+        const imgUrlEventThree = await getMedia(page.acf.event_bild_tre);      
+        const imgUrlEventFour = await getMedia(page.acf.event_bild_fyra);
+        const imgUrlEventFive = await getMedia(page.acf.event_bild_fem);
+        const imgUrlEventSix = await getMedia(page.acf.event_bild_sex);
     
   
 
@@ -34,7 +34,7 @@ export default async function Home() {
     <div>
       <main>
         <div className={styles.header}>
-        <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
+        <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw" />
         <h1>{page.acf.kalender_titel}</h1>          
         </div>
 
@@ -69,12 +69,12 @@ export default async function Home() {
         <div className={styles.highlights}>
           <h2>{page.acf.bild_titel}</h2>
           <div className={styles.highlightsImg}>
-            <img src={imgUrlEventOne} alt={page.acf.event_bild_ett_beskrivning}></img>
-            <img src={imgUrlEventTwo} alt={page.acf.event_bild_tva_beskrivning}></img>
-            <img src={imgUrlEventThree} alt={page.acf.event_bild_tre_beskrivning}></img>
-            <img src={imgUrlEventFour} alt={page.acf.event_bild_fyra_beskrivning}></img>
-            <img src={imgUrlEventFive} alt={page.acf.event_bild_fem_beskrivning}></img>
-            <img src={imgUrlEventSix} alt={page.acf.event_bild_sex_beskrivning}></img>            
+            <Image src={imgUrlEventOne.url} alt={page.acf.event_bild_ett_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
+            <Image src={imgUrlEventTwo.url} alt={page.acf.event_bild_tva_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
+            <Image src={imgUrlEventThree.url} alt={page.acf.event_bild_tre_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
+            <Image src={imgUrlEventFour.url} alt={page.acf.event_bild_fyra_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
+            <Image src={imgUrlEventFive.url} alt={page.acf.event_bild_fem_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
+            <Image src={imgUrlEventSix.url} alt={page.acf.event_bild_sex_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />            
           </div>
         </div>
       </main>

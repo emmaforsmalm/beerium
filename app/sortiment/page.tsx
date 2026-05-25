@@ -10,6 +10,7 @@ import styles from "./sortiment.module.scss";
 import ProductComponent from "@/components/ProductComponent";
 import { Metadata } from "next";
 import { checkImg } from "@/functions/FilterFunctions";
+import Image from "next/image";
 
 export default async function Sortiment() {
 
@@ -17,15 +18,15 @@ export default async function Sortiment() {
   const products = await getProducts();
 
 
-  const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
-  const imgUrlSystembolaget = await checkImg(page.acf.systembolaget_bild, "/systembolaget.png");
+  const imgUrlHeader = await getMedia(page.acf.header_bild);
+  const imgUrlSystembolaget = await getMedia(page.acf.systembolaget_bild);
   
 
   return (
     <div>
       <main>
         <div className={styles.header}>
-          <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
+          <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>          
         </div>
@@ -45,7 +46,7 @@ export default async function Sortiment() {
 {products &&(
         <div className={styles.productDiv}>
           {products.map((product) => (
-              <ProductComponent key={product.id} img={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
+              <ProductComponent key={product.id} img={product.productImgUrl.url} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl.width} height={product.productImgUrl.height} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
           ))}
         </div>  
 )}
@@ -53,7 +54,7 @@ export default async function Sortiment() {
 
         <div className={styles.systembolagetDiv}>
           <h2>{page.acf.sortiment_titel}</h2>
-          <a className={styles.systembolagetLink} href="https://www.systembolaget.se/sortiment/?q=beerium"><img src={imgUrlSystembolaget} alt={page.acf.systembolaget_bild_beskrivning}></img></a>
+          <a className={styles.systembolagetLink} href="https://www.systembolaget.se/sortiment/?q=beerium"><Image src={imgUrlSystembolaget.url} alt={page.acf.systembolaget_bild_beskrivning} width={imgUrlSystembolaget.width} height={imgUrlSystembolaget.height} sizes="500px"/></a>
         </div>
 
         <div className={styles.krogDiv}>

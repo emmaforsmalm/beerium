@@ -1,6 +1,7 @@
 
 import './footerComponent.scss';
 import { getFooter, getMedia } from '@/apiReq/wordpressApi';
+import Image from 'next/image';
 
 export default async function FooterComponent () {
 
@@ -26,7 +27,7 @@ export default async function FooterComponent () {
     return (
     <div className='footer'>
         <div className='footerMainDiv'>
-        <img src={footerLogo} alt="Beeriums logga"></img>
+        <Image src={footerLogo.url} alt="Beeriums logga" width={footerLogo.width} height={footerLogo.height} sizes="100px"/>
         <div className='footerTitleDiv'>
         <p className='footerTitle'>{footer.acf.footer_titel}</p>
         <p className='footerTagline'>{footer.acf.footer_tagline}</p>
@@ -39,13 +40,13 @@ export default async function FooterComponent () {
             </div>
             <div className='footerSocials'>
                 {facebookImg && footer.acf.footer_facebook_link && (
-                    <a className='footerFacebook' href={footer.acf.footer_facebook_link}><img src={facebookImg} alt="Facebook logga"></img></a>
+                    <a className='footerFacebook' href={footer.acf.footer_facebook_link}><Image src={facebookImg.url} alt="Facebook logga" width={footerLogo.width} height={footerLogo.height} sizes="100px"/></a>
                 )}
                 {instagramImg && footer.acf.footer_instagram_link && (
-                <a className='footerInstagram' href={footer.acf.footer_instagram_link}><img src={instagramImg} alt="Instagram logga"></img></a>                    
+                <a className='footerInstagram' href={footer.acf.footer_instagram_link}><Image src={instagramImg.url} alt="Instagram logga" width={footerLogo.width} height={footerLogo.height} sizes="100px"/></a>                    
                 )}
                 {untappdImg && footer.acf.footer_untappd_link && (
-                <a className='footerUntappd' href={footer.acf.footer_untappd_link}><img src={untappdImg} alt="Untappd logga"></img></a>                    
+                <a className='footerUntappd' href={footer.acf.footer_untappd_link}><Image src={untappdImg.url} alt="Untappd logga" width={footerLogo.width} height={footerLogo.height} sizes="100px"/></a>                    
                 )}
 
             </div>

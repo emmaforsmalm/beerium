@@ -1,6 +1,6 @@
 //Importera typer för sidor och poster
 import { checkImg } from "@/functions/FilterFunctions";
-import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember, Payment } from "@/types/wordpress.types";
+import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember, Payment, Media } from "@/types/wordpress.types";
 import { NextResponse } from "next/server";
 
 //Hämta in URL för api
@@ -104,7 +104,7 @@ export const getFooter = async (): Promise<Footer> => {
 }
 
 //Funktion för att hämta in bilder från api
-export const getMedia = async (id: number): Promise<string> => {
+export const getMedia = async (id: number): Promise<Media> => {
 
   const resp = await fetch(`${API_URL}/media/${id}`, {
       next: {revalidate: 60}
@@ -115,7 +115,12 @@ export const getMedia = async (id: number): Promise<string> => {
     } else {
       const data = await resp.json();
 
-      return data.source_url;
+      return {
+        url: data.source_url,
+        alt: data.alt_text,
+        width: data.media_details.width,
+        height: data.media_details.height
+      }
     }
 
 }
@@ -159,7 +164,7 @@ export const getProducts = async (): Promise<Produkt[]> => {
       
       const products = await Promise.all(
         data.map(async (product: Produkt) => {
-          const productImgUrl = await checkImg(product.acf.produkt_bild, "/placeholderDark.png");
+          const productImgUrl = await getMedia(product.acf.produkt_bild);
           return {...product, productImgUrl}
         })
       )

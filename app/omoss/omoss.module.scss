@@ -8,11 +8,13 @@ $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
+$estonia: var(--font-estonia);
 
 .header {
     margin-bottom: 100px;
     img {
         width: 100%;
+        height: 100%;
     }
 
     h1 {

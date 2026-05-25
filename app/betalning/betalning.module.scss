@@ -8,7 +8,7 @@ $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
 $azoSans: var(--font-azo-sans);
 $second-heading: var(--font-outfit);
-
+$estonia: var(--font-estonia);
 
 .paymentDiv {
     display: flex;
@@ -38,11 +38,14 @@ $second-heading: var(--font-outfit);
     }
 }
 
+
+
 .qrCodeImg {
     display: block; 
     margin: 0 auto;
     border: 5px solid white;
     border-radius: 15px;
+
 }
 
 .goBackLink {
@@ -63,5 +66,12 @@ $second-heading: var(--font-outfit);
             margin: 0 auto;
             margin-bottom: 15px;
         }
+    }
+
+}
+
+@media(max-width: 1200px) {
+    .qrCodeImg {
+        width: 200px;
     }
 }

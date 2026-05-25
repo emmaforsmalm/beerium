@@ -9,14 +9,14 @@ import { getMemberPage, getMedia } from "@/apiReq/wordpressApi";
 //Importera scss-fil
 import styles from "./medlem.module.scss";
 import { Metadata } from "next";
-import { checkImg } from "@/functions/FilterFunctions";
 import MemberForm from "@/components/MemberForm";
+import Image from "next/image";
 
 export default async function Member() {
 
     const page = await getMemberPage();
   
-    const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
+    const imgUrlHeader = await getMedia(page.acf.header_bild);
 
 
 
@@ -24,7 +24,7 @@ export default async function Member() {
     <div>
       <main>
         <div className={styles.header}>
-          <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
+          <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
         <h1>{page.acf.medlem_sidtitel}</h1>
         <p>{page.acf.medlem_tagline}</p>          
         </div>

@@ -5,26 +5,26 @@ export const metadata: Metadata = {
 
 //Importera funktion för att läsa in om oss-sidan från wordpress
 import { getAboutPage, getMedia } from "@/apiReq/wordpressApi";
+import Image from "next/image";
 //Importera scss-fil
 import styles from "./omoss.module.scss";
 
 //Importera kontaktformulärs-komponent
 import ContactForm from "@/components/ContactForm";
 import { Metadata } from "next";
-import { checkImg } from "@/functions/FilterFunctions";
 
 
 export default async function About() {
 
   const page = await getAboutPage();
 
-  const imgUrlHeader = await checkImg(page.acf.header_bild, "/breweryb&w.jpg");
+  const imgUrlHeader = await getMedia(page.acf.header_bild);
 
   return (
     <div>
       <main>
         <div className={styles.header}>
-          <img src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
+          <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
           <h1>{page.acf.om_oss_titel}</h1>
           <p>{page.acf.om_oss_text}</p>
         </div>

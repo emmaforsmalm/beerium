@@ -14,6 +14,7 @@ import EventComponent from "@/components/EventComponent";
 import ProductComponent from "@/components/ProductComponent";
 import { formatEventDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export default async function Home() {
 
@@ -38,7 +39,7 @@ export default async function Home() {
     <div>
       <main>
         <div className={styles.header}>
-          <img className={styles.startHeader} src={imgUrlHeader} alt={page.acf.header_bild_beskrivning}></img>
+          <Image className={styles.startHeader} src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
           <div className={styles.headTextDiv}>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>            
@@ -48,7 +49,7 @@ export default async function Home() {
         <div className={styles.aboutDiv}>
           <div className={styles.aboutImg}>
             <div className={styles.imgBorder}>
-            <img src={imgUrlAbout} alt={page.acf.omoss_bild_beskrivning}></img>
+            <Image src={imgUrlAbout.url} alt={page.acf.omoss_bild_beskrivning} width={imgUrlAbout.width} height={imgUrlAbout.height} sizes="300px"/>
           </div>
           </div>
           <div className={styles.aboutContent}>
@@ -84,7 +85,7 @@ export default async function Home() {
           <div className={styles.mainProductList}>
           {latestProducts.map((product) => (
             <div className={styles.latestProducts} key={product.id}>
-              <img src={product.productImgUrl} alt={product.acf.produkt_bild_beskrivning}></img>
+              <Image src={product.productImgUrl.url} alt={product.acf.produkt_bild_beskrivning} width={imgUrlAbout.width} height={imgUrlAbout.height} sizes="300px"/>
               <h3>{product.acf.produkt_titel}</h3>
               <h4>{product.acf.produkt_kategori}</h4>
            </div>

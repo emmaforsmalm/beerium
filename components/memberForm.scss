@@ -76,7 +76,8 @@ $second-heading: var(--font-outfit);
      }
 
      .qrCode {
-        width: 400px;
+        max-width: 350px;
+        width: 80%;
         display: block;
         margin: 0 auto;
         height: 500px;
@@ -86,7 +87,8 @@ $second-heading: var(--font-outfit);
 
         img{
         display: block;
-        width: 300px;
+        max-width: 350px;
+        width: 80%;
         margin: 0 auto;      
         margin-top: 20px;      
         margin-bottom: 20px;  
@@ -108,6 +110,7 @@ $second-heading: var(--font-outfit);
         .memberForm {
             width: 400px;
         }
+
     }
 
     @media(max-width: 500px) {
