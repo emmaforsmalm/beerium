@@ -104,14 +104,15 @@ export const getFooter = async (): Promise<Footer> => {
 }
 
 //Funktion för att hämta in bilder från api
-export const getMedia = async (id: number): Promise<Media> => {
+export const getMedia = async (id: number): Promise<Media | null> => {
+  if (!id) return null;
 
   const resp = await fetch(`${API_URL}/media/${id}`, {
       next: {revalidate: 60}
     });
 
     if(!resp.ok) {
-      throw new Error("Något gick fel med att läsa in bilden");
+      return null;
     } else {
       const data = await resp.json();
 
@@ -165,7 +166,7 @@ export const getProducts = async (): Promise<Produkt[]> => {
       const products = await Promise.all(
         data.map(async (product: Produkt) => {
           const productImgUrl = await getMedia(product.acf.produkt_bild);
-          return {...product, productImgUrl}
+          return {...product, productImgUrl: productImgUrl ?? null}
         })
       )
       
