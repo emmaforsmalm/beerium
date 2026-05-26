@@ -34,7 +34,7 @@ export default async function Home() {
     <div>
       <main>
         <div className={styles.header}>
-        <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw" />
+        <Image src={imgUrlHeader?.url ?? '/defaultHeader.webp'} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader?.width ?? 2000} height={imgUrlHeader?.height ?? 400} sizes="100vw" />
         <h1>{page.acf.kalender_titel}</h1>          
         </div>
 
@@ -69,12 +69,12 @@ export default async function Home() {
         <div className={styles.highlights}>
           <h2>{page.acf.bild_titel}</h2>
           <div className={styles.highlightsImg}>
-            <Image src={imgUrlEventOne.url} alt={page.acf.event_bild_ett_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
-            <Image src={imgUrlEventTwo.url} alt={page.acf.event_bild_tva_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
-            <Image src={imgUrlEventThree.url} alt={page.acf.event_bild_tre_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
-            <Image src={imgUrlEventFour.url} alt={page.acf.event_bild_fyra_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
-            <Image src={imgUrlEventFive.url} alt={page.acf.event_bild_fem_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />
-            <Image src={imgUrlEventSix.url} alt={page.acf.event_bild_sex_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="200px" />            
+            <Image src={imgUrlEventOne?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_ett_beskrivning} width={imgUrlEventOne?.width ?? 200} height={imgUrlEventOne?.height ?? 200} sizes="200px" />
+            <Image src={imgUrlEventTwo?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_tva_beskrivning} width={imgUrlEventTwo?.width ?? 200} height={imgUrlEventTwo?.height ?? 200} sizes="200px" />
+            <Image src={imgUrlEventThree?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_tre_beskrivning} width={imgUrlEventThree?.width ?? 200} height={imgUrlEventThree?.height ?? 200} sizes="200px" />
+            <Image src={imgUrlEventFour?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_fyra_beskrivning} width={imgUrlEventFour?.width ?? 200} height={imgUrlEventFour?.height ?? 200} sizes="200px" />
+            <Image src={imgUrlEventFive?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_fem_beskrivning} width={imgUrlEventFive?.width ?? 200} height={imgUrlEventFive?.height ?? 200} sizes="200px" />
+            <Image src={imgUrlEventSix?.url ?? '/calendarImg.webp'} alt={page.acf.event_bild_sex_beskrivning} width={imgUrlEventSix?.width ?? 200} height={imgUrlEventSix?.height ?? 200} sizes="200px" />            
           </div>
         </div>
       </main>

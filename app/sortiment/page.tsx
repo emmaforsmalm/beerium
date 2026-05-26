@@ -26,7 +26,7 @@ export default async function Sortiment() {
     <div>
       <main>
         <div className={styles.header}>
-          <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
+          <Image src={imgUrlHeader?.url ?? '/defaultHeader.webp'} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader?.width ?? 400} height={imgUrlHeader?.height ?? 400} sizes="100vw"/>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>          
         </div>
@@ -54,7 +54,7 @@ export default async function Sortiment() {
 
         <div className={styles.systembolagetDiv}>
           <h2>{page.acf.sortiment_titel}</h2>
-          <a className={styles.systembolagetLink} href="https://www.systembolaget.se/sortiment/?q=beerium"><Image src={imgUrlSystembolaget.url} alt={page.acf.systembolaget_bild_beskrivning} width={imgUrlSystembolaget.width} height={imgUrlSystembolaget.height} sizes="500px"/></a>
+          <a className={styles.systembolagetLink} href="https://www.systembolaget.se/sortiment/?q=beerium"><Image src={imgUrlSystembolaget?.url ?? '/systembolaget.png'} alt={page.acf.systembolaget_bild_beskrivning} width={imgUrlSystembolaget?.width ?? 400} height={imgUrlSystembolaget?.height ?? 400} sizes="500px"/></a>
         </div>
 
         <div className={styles.krogDiv}>

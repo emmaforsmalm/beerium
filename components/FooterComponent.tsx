@@ -27,7 +27,7 @@ export default async function FooterComponent () {
     return (
     <div className='footer'>
         <div className='footerMainDiv'>
-        <Image src={footerLogo.url} alt="Beeriums logga" width={footerLogo.width} height={footerLogo.height} sizes="100px" style={{width: '60px', height: '60px'}}/>
+        <Image src={footerLogo?.url ?? '/defaultlogo.webp'} alt="Beeriums logga" width={footerLogo?.width ?? 400} height={footerLogo?.height ?? 400} sizes="100px" style={{width: '60px', height: '60px'}}/>
         <div className='footerTitleDiv'>
         <p className='footerTitle'>{footer.acf.footer_titel}</p>
         <p className='footerTagline'>{footer.acf.footer_tagline}</p>

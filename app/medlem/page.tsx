@@ -24,7 +24,7 @@ export default async function Member() {
     <div>
       <main>
         <div className={styles.header}>
-          <Image src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw"/>
+          <Image src={imgUrlHeader?.url ?? '/defaultHeader.webp'} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader?.width ?? 2000} height={imgUrlHeader?.height ?? 400} sizes="100vw"/>
         <h1>{page.acf.medlem_sidtitel}</h1>
         <p>{page.acf.medlem_tagline}</p>          
         </div>

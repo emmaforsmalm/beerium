@@ -39,7 +39,7 @@ export default async function Home() {
     <div>
       <main>
         <div className={styles.header}>
-          <Image className={styles.startHeader} src={imgUrlHeader.url} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader.width} height={imgUrlHeader.height} sizes="100vw" loading="eager" priority={true} fetchPriority="high"/>
+          <Image className={styles.startHeader} src={imgUrlHeader?.url ?? '/defaulthome.webp'} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader?.width ?? 2000} height={imgUrlHeader?.height ?? 400} sizes="100vw" loading="eager" priority={true} fetchPriority="high"/>
           <div className={styles.headTextDiv}>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>            
@@ -49,7 +49,7 @@ export default async function Home() {
         <div className={styles.aboutDiv}>
           <div className={styles.aboutImg}>
             <div className={styles.imgBorder}>
-            <Image src={imgUrlAbout.url} alt={page.acf.omoss_bild_beskrivning} width={imgUrlAbout.width} height={imgUrlAbout.height} sizes="300px"/>
+            <Image src={imgUrlAbout?.url ?? '/defaultabout.webp'} alt={page.acf.omoss_bild_beskrivning} width={imgUrlAbout?.width ?? 400} height={imgUrlAbout?.height ?? 400} sizes="300px"/>
           </div>
           </div>
           <div className={styles.aboutContent}>
@@ -85,7 +85,7 @@ export default async function Home() {
           <div className={styles.mainProductList}>
           {latestProducts.map((product) => (
             <div className={styles.latestProducts} key={product.id}>
-              <Image src={product.productImgUrl.url} alt={product.acf.produkt_bild_beskrivning} width={imgUrlAbout.width} height={imgUrlAbout.height} sizes="300px"/>
+              <Image src={product.productImgUrl.url} alt={product.acf.produkt_bild_beskrivning} width={imgUrlAbout?.width ?? 400} height={imgUrlAbout?.height ?? 400} sizes="300px"/>
               <h3>{product.acf.produkt_titel}</h3>
               <h4>{product.acf.produkt_kategori}</h4>
            </div>
