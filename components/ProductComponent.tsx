@@ -24,7 +24,7 @@ export default function ProductComponent ({img, alt, width, height, title, categ
 
     return (        
         <div className='productComponentDiv'>
-           <Image src={img} alt={alt} width={width} height={height} sizes="300px"/>
+           <Image src={img ?? '/placeholderDark.png'} alt={alt ?? 'Produktbild'} width={width ?? 200} height={height ?? 350} sizes="300px"/>
            <h2>{title}</h2>
            <h3>{category}</h3>
            {!show &&(
