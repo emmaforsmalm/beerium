@@ -27,12 +27,13 @@ $estonia: var(--font-estonia);
     p {
         font-family: $poppins;
         color: $main-beige;
-        max-width: 700px;
-        width: 65%;
+        max-width: 600px;
+        width: 60%;
         display: block;
         margin: 0 auto;
         margin-bottom: 50px;
         white-space: pre-line;
+        font-size: 90%;
     }
 }
 
@@ -59,7 +60,7 @@ $estonia: var(--font-estonia);
         margin: 0 auto;
         margin-top: -20px;
         margin-bottom: 30px;
-        font-size: 120%;
+        font-size: 110%;
     }
 
     .contactForm {
@@ -125,7 +126,7 @@ $estonia: var(--font-estonia);
     .header {
 
     p {
-        font-size: 115%;
+        font-size: 100%;
     }
 }
 }
@@ -162,7 +163,7 @@ $estonia: var(--font-estonia);
         }
 
         p {
-            font-size: 100%;
+            font-size: 90%;
         }
     }
 

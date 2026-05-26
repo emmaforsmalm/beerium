@@ -46,13 +46,18 @@ $breathing: var(--font-breathing);
         color: $main-beige;
         font-family: $second-heading;
         font-size: 200%;
+        text-align: center;
     }
 
     p {
         white-space: pre-line;
         color: $main-beige;
         font-family: $poppins;
-        font-size: 120%;
+        font-size: 100%;
+        max-width: 700px;
+        width: 85%;
+        display: block;
+        margin: 0 auto;
     }
 }
 
@@ -75,11 +80,11 @@ $breathing: var(--font-breathing);
     .memberDiv {
         display: block;
         margin: 0 auto;
-        max-width: 600px;
-        width: 80%;
+        max-width: 700px;
+        width: 90%;
 
         p {
-            font-size: 110%;
+            font-size: 100%;
         }
     }
 
