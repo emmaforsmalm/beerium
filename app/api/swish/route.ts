@@ -10,7 +10,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         format: 'png',
         payee: {value: process.env.SWISH_NUMBER, editable: false},
-        amount: {value: 1, editable: false},
+        amount: {value: process.env.SWISH_VALUE, editable: false},
         message: {value: reference, editable: false},
         size: 300,
       }),
