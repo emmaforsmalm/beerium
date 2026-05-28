@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="sv" className={`${poppins.variable} ${azoSans.variable}  ${outfit.variable} ${breathing.variable} ${azoSansBlack.variable} ${materialSymbols.variable}`}>
       <head>
-              
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <body className="min-h-full flex flex-col">
         <NavComponent />
