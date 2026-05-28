@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
       hostname: 'beerium-website-production.up.railway.app',
   }]
   }
-  /* config options here */
 };
 
 export default nextConfig;

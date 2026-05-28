@@ -180,7 +180,6 @@ export const getEvents = async (): Promise<Event[]> => {
   console.log(API_URL);
 
     const resp = await fetch(`${API_URL}/event`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {

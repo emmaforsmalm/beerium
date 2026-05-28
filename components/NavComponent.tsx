@@ -19,7 +19,7 @@ export default function NavComponent() {
 return (
     <>
       <nav className="mainNav">
-        <Link className="logoLink" href="/"><Image className="logo" src="/loggamindre.webp" alt="Beeriums logga" width="80" height="80"/></Link>
+        <Link className="logoLink" href="/"><Image className="logo" src="/loggaWebP.webp" alt="Beeriums logga" width="80" height="80"/></Link>
         <Link className={pathName === '/' ? "navLinkActive" : "navMenuLink"} href="/">Hem</Link>
         <Link className={pathName === '/sortiment' ? "navLinkActive" : "navMenuLink"} href="/sortiment">Vårt sortiment</Link>
         <Link className={pathName === '/kalender' ? "navLinkActive" : "navMenuLink"} href="/kalender">Kalender</Link>
@@ -28,7 +28,7 @@ return (
       </nav>  
       <nav className="mobileNav">
         <div className="menuLogos">
-        <Link className="logoLink" href="/"><img className="logo" src="/loggamindre.webp" alt="Beeriums logga" width="60" height="60"/></Link>   
+        <Link className="logoLink" href="/"><img className="logo" src="/loggaWebP.webp" alt="Beeriums logga" width="60" height="60"/></Link>   
 
             {!menuOpen && (
                 <span className="material-symbols-outlined menuSymbol" onClick={toggleMenu}>menu</span>
