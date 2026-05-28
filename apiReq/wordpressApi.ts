@@ -11,7 +11,6 @@ const FORM_URL = process.env.NEXT_PUBLIC_WP_URL;
 export const getStartPage = async (): Promise<Startsida> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=startsida`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -27,7 +26,6 @@ export const getStartPage = async (): Promise<Startsida> => {
 export const getSortimentPage = async (): Promise<Sortiment> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=sortiment`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -43,7 +41,6 @@ export const getSortimentPage = async (): Promise<Sortiment> => {
 export const getMemberPage = async (): Promise<Medlem> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=medlem`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -59,7 +56,6 @@ export const getMemberPage = async (): Promise<Medlem> => {
 export const getAboutPage = async (): Promise<OmOss> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=om-oss`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -75,7 +71,6 @@ export const getAboutPage = async (): Promise<OmOss> => {
 export const getCalendarPage = async (): Promise<Kalender> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=kalender`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -91,7 +86,6 @@ export const getCalendarPage = async (): Promise<Kalender> => {
 export const getFooter = async (): Promise<Footer> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=footer`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -108,7 +102,6 @@ export const getMedia = async (id: number): Promise<Media | null> => {
   if (!id) return null;
 
   const resp = await fetch(`${API_URL}/media/${id}`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
@@ -242,7 +235,6 @@ export const getQr = async(reference:string) => {
 export const getPaymentInfo = async (): Promise<Payment> => {
 
     const resp = await fetch(`${API_URL}/pages?slug=betalningssida`, {
-      next: {revalidate: 60}
     });
 
     if(!resp.ok) {
