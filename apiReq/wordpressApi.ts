@@ -155,7 +155,7 @@ export const sendContactForm = async (name: string, email: string, subject: stri
 export const getProducts = async (): Promise<Produkt[]> => {
 
     const resp = await fetch(`${API_URL}/product`, {
-      next: {revalidate: 60}
+      next: {tags: ['products']}
     });
 
     if(!resp.ok) {
@@ -175,12 +175,10 @@ export const getProducts = async (): Promise<Produkt[]> => {
 }
 
 //Funktion för att hämta in event
-export const getEvents = async (cache?: RequestCache): Promise<Event[]> => {
-
-  console.log(API_URL);
+export const getEvents = async (): Promise<Event[]> => {
 
     const resp = await fetch(`${API_URL}/event`, {
-      cache: cache ?? 'no-store'
+      next: {tags: ['events']}
     });
 
     if(!resp.ok) {

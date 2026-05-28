@@ -19,7 +19,7 @@ import Image from "next/image";
 export default async function Home() {
 
   const page = await getStartPage();
-  const events = await getEvents('no-store');
+  const events = await getEvents();
   const nextEvent = await getLatestEvent(events);
   const products = await getProducts();
   const latestProducts = await getLatestProducts(products);
@@ -32,8 +32,6 @@ export default async function Home() {
   if(nextEvent) {
   nextEventDate = formatEventDate(nextEvent.acf.start_datum, nextEvent.acf.slut_datum);
   }
-
-
 
 
   return (

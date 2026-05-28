@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -10,6 +10,8 @@ export async function GET(req: NextRequest) {
     }
 
     try {
+        revalidateTag('events', {});
+        revalidateTag('products', {});
         revalidatePath('/');
         revalidatePath('/sortiment');
         revalidatePath('/omoss');
