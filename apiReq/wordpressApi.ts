@@ -175,11 +175,12 @@ export const getProducts = async (): Promise<Produkt[]> => {
 }
 
 //Funktion för att hämta in event
-export const getEvents = async (): Promise<Event[]> => {
+export const getEvents = async (cache?: RequestCache): Promise<Event[]> => {
 
   console.log(API_URL);
 
     const resp = await fetch(`${API_URL}/event`, {
+      cache: cache ?? 'no-store'
     });
 
     if(!resp.ok) {

@@ -19,10 +19,11 @@ import Image from "next/image";
 export default async function Home() {
 
   const page = await getStartPage();
-  const events = await getEvents();
+  const events = await getEvents('no-store');
   const nextEvent = await getLatestEvent(events);
   const products = await getProducts();
   const latestProducts = await getLatestProducts(products);
+
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
   const imgUrlAbout = await getMedia(page.acf.omoss_bild);
