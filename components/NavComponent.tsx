@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function NavComponent() {
 
@@ -14,6 +15,12 @@ export default function NavComponent() {
   }
 
   const pathName = usePathname();
+  const router = useRouter();
+
+  //När pathname ändras ska sidan uppdateras
+  useEffect(() => {
+    router.refresh();
+  }, [pathName]);
 
 
 return (
