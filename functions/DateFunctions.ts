@@ -1,10 +1,13 @@
 //Funktion för att formatera datum
 export const parseDate = (date: string) => {
-    const year = date.substring(0,4);
-    const month = date.substring(4,6);
-    const day = date.substring(6,8);
+    const year = Number(date.substring(0,4));
+    const month = Number(date.substring(4,6)) - 1;
+    const day = Number(date.substring(6,8));
 
-    return new Date (`${year}-${month}-${day}`);
+
+    const result = new Date(year, month, day);
+    return result;
+    
 }
 
 //Funktion för att formatera start och slutdatum
