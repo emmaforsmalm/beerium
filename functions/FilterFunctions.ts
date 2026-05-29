@@ -7,6 +7,7 @@ export const getLatestEvent = (events: Event[]) => {
 
     //Hämta in dagens datum
     const today = new Date();
+    today.setHours(0,0,0,0);
 
     //Filtrera events på datum som har passerat och sortera på tidigast
     return events 

@@ -18,7 +18,9 @@ export default function EventComponent ({title, startDate, endDate, place, info,
 
     const [show, setShow] = useState(false);
 
-    const isPassed = parseDate(endDate) <= new Date();
+    const today = new Date();
+    today.setHours(0,0,0,0)
+    const isPassed = parseDate(endDate) < today;
 
     const toggleShow = () => {
         setShow(!show);
