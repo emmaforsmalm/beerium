@@ -10,8 +10,6 @@ import styles from "./page.module.scss";
 //Importera Link
 import Link from "next/link";
 import { getLatestEvent, getLatestProducts } from "@/functions/FilterFunctions";
-import EventComponent from "@/components/EventComponent";
-import ProductComponent from "@/components/ProductComponent";
 import { formatEventDate } from "@/functions/DateFunctions";
 import { Metadata } from "next";
 import Image from "next/image";

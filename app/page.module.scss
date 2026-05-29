@@ -281,7 +281,7 @@ $estonia: var(--font-estonia);
         font-family: $poppins;
         font-style: italic;
         font-weight: 300;
-        color: $main-orange;
+        color: lighten($main-orange, 3%);
         text-align: center;
         display: block;
         margin: 0 auto;
@@ -331,7 +331,7 @@ $estonia: var(--font-estonia);
     }
 
     h4 {
-        color: $main-orange;
+        color: lighten($main-orange, 3%);
         font-family: $poppins;
         font-style: italic;
         font-weight: 300;

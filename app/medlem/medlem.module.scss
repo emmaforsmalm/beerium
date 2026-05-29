@@ -28,7 +28,7 @@ $breathing: var(--font-breathing);
     }
 
     p {
-        color: $main-orange;
+        color: lighten($main-orange, 3%);
         font-family: $breathing;
         font-size: 200%;
         text-align: center;

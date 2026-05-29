@@ -50,7 +50,7 @@ $estonia: var(--font-estonia);
 }
 
 .goBackLink {
-    color: darken($main-orange, 3%);
+    color: lighten($main-orange, 3%);
     text-underline-offset: 5px;
 
 }
