@@ -22,15 +22,15 @@ $breathing: var(--font-breathing);
         color: $main-beige;
         font-family: $azoSans;
         text-align: center;
-        font-size: 450%;
+        font-size: 300%;
     }
 
     p {
         color: $main-orange;
         text-align: center;
         font-family: $breathing;
-        font-size: 400%;
-        margin-top: -60px;
+        font-size: 250%;
+        margin-top: -45px;
         line-height: 1.2;
     }
 }
@@ -131,12 +131,12 @@ $breathing: var(--font-breathing);
 
     .header {
         h1 {
-            font-size: 330%;
+            font-size: 300%;
         }
 
         p {
-            font-size: 300%;
-            margin-top: -50px;
+            font-size: 250%;
+            margin-top: -45px;
         }
     }
 
@@ -166,11 +166,11 @@ $breathing: var(--font-breathing);
 
         .header {
         h1 {
-            font-size: 270%;
+            font-size: 260%;
         }
 
         p {
-            font-size: 270%;
+            font-size: 220%;
             margin-top: -35px;
         }
     }
