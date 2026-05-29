@@ -35,12 +35,14 @@ export default async function Member() {
           )}
         </div>
 
-        <MemberForm />
+        
 
         <div className={styles.memberDiv}>
           <h2>{page.acf.medlem_text_titel}</h2>
           <p className={styles.memberText}>{page.acf.medlem_text}</p>
         </div>
+
+        <MemberForm />
 
       </main>
     </div>
