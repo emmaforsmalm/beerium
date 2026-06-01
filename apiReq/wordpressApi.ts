@@ -1,7 +1,6 @@
 //Importera typer för sidor och poster
-import { checkImg } from "@/functions/FilterFunctions";
 import type { Startsida, Sortiment, OmOss, Medlem, Produkt, Event, Kalender, Footer, newMember, Payment, Media } from "@/types/wordpress.types";
-import { NextResponse } from "next/server";
+
 
 //Hämta in URL för api
 const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
@@ -193,31 +192,16 @@ next: {revalidate: 60}
 export const postMember = async (reference:string, memberName: string, email: string): Promise<void> => {
 
   console.log(API_URL);
-  const resp = await fetch(`${API_URL}/member`, {
+  const resp = await fetch(`/api/member`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + Buffer.from(`${process.env.NEXT_PUBLIC_WP_Profile_User}:${process.env.NEXT_PUBLIC_WP_Profile_Password}`).toString('base64'),
-    },
-    body: JSON.stringify({
-      title: reference,
-      status: 'publish',
-      acf: {
-        member_name: memberName,
-        member_email: email,
-        member_reference: reference,
-        member_payment: "ej betald",
-        member_welcome_email: "ej skickat",
-        member_merch: "ej skickat",
-      },
-    }),
+},
+    body: JSON.stringify({ reference, memberName, email }),
   });
-
-    const data = await resp.json();
 
   if(!resp.ok) {
     throw new Error ("Det gick inte att skapa en ny medlem");
-
 
   }
 }
