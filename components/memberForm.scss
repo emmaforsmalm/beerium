@@ -110,6 +110,14 @@ $second-heading: var(--font-outfit);
     @media(max-width: 700px) {
         .memberForm {
             width: 400px;
+
+            input {
+                width: 70%;
+            }
+
+            label {
+                width: 70%;
+            }
         }
 
     }

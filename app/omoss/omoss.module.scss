@@ -141,8 +141,14 @@ $estonia: var(--font-estonia);
 
 @media (max-width: 700px) {
 
+
+
         .contact {
         width: 400px;
+
+            .contactForm {
+        width: 85%;
+    }
     }
 
     .header {
