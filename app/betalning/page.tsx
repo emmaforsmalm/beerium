@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Betalningssida - Beerium",
   description: "Betalningssida för medlemskap i Beerium"

@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 //Sätter en titel för sidan med metadata
 export const metadata: Metadata = {
   title: "Kalender - Beerium",

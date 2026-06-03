@@ -1,3 +1,4 @@
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: "Medlem - Beerium",
