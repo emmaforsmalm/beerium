@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Sortiment - Beerium",
   description: "Utforska Beeriums sortiment av hantverksöl"
