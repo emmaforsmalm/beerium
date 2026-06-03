@@ -48,7 +48,7 @@ export default async function Sortiment() {
 {products &&(
         <div className={styles.productDiv}>
           {products.map((product) => (
-              <ProductComponent key={product.id} img={product.productImgUrl.url} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl.width} height={product.productImgUrl.height} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
+              <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel}/>
           ))}
         </div>  
 )}
