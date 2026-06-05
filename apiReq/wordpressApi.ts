@@ -191,7 +191,6 @@ next: {revalidate: 60}
 //funktion för att skapa en ny medlem
 export const postMember = async (reference:string, memberName: string, email: string): Promise<void> => {
 
-  console.log(API_URL);
   const resp = await fetch(`/api/member`, {
     method: 'POST',
     headers: {
