@@ -3,6 +3,7 @@ $main-grey: #292929;
 $main-beige: #F1E9DC;
 $main-orange: #F05A22;
 $main-brown: #723C14;
+$main-green: #8d9a72;
 
 $poppins: var(--font-poppins);
 $comforterBrush: var(--font-comforter-brush);
@@ -51,6 +52,13 @@ $second-heading: var(--font-outfit);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .productDate {
+        background-color: darken($main-beige, 10%);
+        margin-top: 40px;
+        padding: 5px;
+        border-radius: 10px;
     }
 }
 

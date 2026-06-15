@@ -3,6 +3,7 @@
 import './productComponent.scss';
 import { useState } from "react";
 import Image from 'next/image';
+import { parseDate } from '@/functions/DateFunctions';
 
 type ProductProps = {
     img: string;
@@ -12,11 +13,18 @@ type ProductProps = {
     title: string;
     category: string;
     info: string;
+    releaseDate?: string;
+    notAvailable?: boolean;
 }
 
-export default function ProductComponent ({img, alt, width, height, title, category, info}: ProductProps) {
+export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable}: ProductProps) {
 
     const [show, setShow] = useState(false);
+
+    const today = new Date();
+    today.setHours(0,0,0,0)
+
+    const isComing = releaseDate ? parseDate(releaseDate) > today : false;
 
     const toggleShow = () => {
         setShow(!show);
@@ -24,6 +32,12 @@ export default function ProductComponent ({img, alt, width, height, title, categ
 
     return (        
         <div className='productComponentDiv'>
+            {isComing && (
+            <div className='isComing'>
+                <p>Kommer snart</p>
+            </div>
+            )}
+
            <Image src={img ?? '/placeholderDark.png'} alt={alt ?? 'Produktbild'} width={width ?? 200} height={height ?? 350} sizes="300px"/>
            <h2>{title}</h2>
            <h3>{category}</h3>
@@ -35,6 +49,9 @@ export default function ProductComponent ({img, alt, width, height, title, categ
            )}
            {show && (
            <p className='productInfo'>{info}</p>            
+           )}
+           {show && releaseDate && (
+            <p className='productDate'>Lanseringsdatum: {parseDate(releaseDate).toLocaleDateString('sv-SE')}</p>
            )}
         </div>
         )
