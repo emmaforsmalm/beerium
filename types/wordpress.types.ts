@@ -173,6 +173,8 @@ export interface Produkt {
         produkt_info: string;
         produkt_bild: number;
         produkt_bild_beskrivning: string;
+        lanseringsdatum?: string;
+        ur_sortiment?: boolean;
     };
     productImgUrl: Media;
 }
