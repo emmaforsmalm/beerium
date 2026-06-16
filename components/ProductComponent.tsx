@@ -14,7 +14,7 @@ type ProductProps = {
     category: string;
     info: string;
     releaseDate?: string;
-    notAvailable?: boolean;
+    notAvailable: boolean;
 }
 
 export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable}: ProductProps) {
@@ -30,13 +30,26 @@ export default function ProductComponent ({img, alt, width, height, title, categ
         setShow(!show);
     }
 
-    return (        
+    return ( 
+        <div> 
+               
         <div className='productComponentDiv'>
+            {notAvailable && (
+            <div className='notAvailable'>
+                 <p>Ur sortiment</p>
+            </div>
+            )}  
             {isComing && (
             <div className='isComing'>
-                <p>Kommer snart</p>
+                 <p>Kommer snart!</p>
             </div>
-            )}
+            )} 
+            {!isComing && !notAvailable && (
+            <div className='isReleased'>
+                <p></p>
+            </div>
+            )} 
+ 
 
            <Image src={img ?? '/placeholderDark.png'} alt={alt ?? 'Produktbild'} width={width ?? 200} height={height ?? 350} sizes="300px"/>
            <h2>{title}</h2>
@@ -54,5 +67,6 @@ export default function ProductComponent ({img, alt, width, height, title, categ
             <p className='productDate'>Lanseringsdatum: {parseDate(releaseDate).toLocaleDateString('sv-SE')}</p>
            )}
         </div>
+        </div> 
         )
 }

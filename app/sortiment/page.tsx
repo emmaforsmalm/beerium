@@ -13,11 +13,19 @@ import ProductComponent from "@/components/ProductComponent";
 import { Metadata } from "next";
 import { checkImg } from "@/functions/FilterFunctions";
 import Image from "next/image";
+import { parseDate } from "@/functions/DateFunctions";
 
 export default async function Sortiment() {
 
   const page = await getSortimentPage();
   const products = await getProducts();
+
+  const today = new Date();
+  today.setHours(0,0,0,0)
+
+  const isComing = products.filter(p => p.acf.lanseringsdatum && parseDate(p.acf.lanseringsdatum) > today);
+  const notAvailableProducts = products.filter( p => p.acf.ur_sortiment);
+  const availableProducts = products.filter(p => !isComing.includes(p) && !notAvailableProducts.includes(p));
 
 
   const imgUrlHeader = await getMedia(page.acf.header_bild);
@@ -45,13 +53,43 @@ export default async function Sortiment() {
                 </div>
                   )}
 
-{products &&(
+<div className={styles.checkBoxes}>
+  <input type="checkbox" id="available" name="available" value="available"></input>
+  <label htmlFor="available">Tillgängliga</label>
+  <input type="checkbox" id="notAvailable" name="notAvailable" value="notAvailable"></input>
+  <label htmlFor="notAvailable">Ur sortiment</label>
+  <input type="checkbox" id="coming" name="coming" value="coming"></input>
+  <label htmlFor="coming">Kommande</label>
+</div>
+
+<div className={styles.allProducts}>                 
+
+{availableProducts &&(
         <div className={styles.productDiv}>
-          {products.map((product) => (
+          {availableProducts.map((product) => (
               <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
           ))}
         </div>  
 )}
+
+
+{isComing &&(
+        <div className={styles.productDiv}>
+          {isComing.map((product) => (
+              <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
+          ))}
+        </div>  
+)} 
+
+{notAvailableProducts &&(
+        <div className={styles.productDiv}>
+          {notAvailableProducts.map((product) => (
+              <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
+          ))}
+        </div>  
+)}
+</div>
+
 
 
         <div className={styles.systembolagetDiv}>

@@ -93,12 +93,17 @@ $breathing: var(--font-breathing);
 .productDiv {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    justify-content: center;
     justify-items: center;
     width: 700px;
     margin: 0 auto;
     align-items: stretch;
-        row-gap: 50px;
+    row-gap: 50px;
+    margin-top: 50px;
+}
+
+.allProducts {
+    display: flex;
+    flex-direction: column;
 }
 
 //Anpassningar till stora skärmar
