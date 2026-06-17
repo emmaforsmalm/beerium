@@ -28,7 +28,6 @@ export default function ProductList({page, products, imgUrlHeader, imgUrlSystemb
   const toggleShowAvailable = () => {setShowAvailable(!showAvailable);}
   const toggleShowNotAvailable = () => {setShowNotAvailable(!showNotAvailable);}
 
-
   const today = new Date();
   today.setHours(0,0,0,0)
 
@@ -37,6 +36,10 @@ export default function ProductList({page, products, imgUrlHeader, imgUrlSystemb
   const availableProducts = products.filter(p => !isComing.includes(p) && !notAvailableProducts.includes(p));
 
   
+  const allProducts = [...(showAvailable && availableProducts ? availableProducts : []), 
+                        ...(showComing && isComing ? isComing : []), 
+                        ...(showNotAvailable && notAvailableProducts ? notAvailableProducts : [])];
+
 
   return (
     <div>
@@ -76,29 +79,15 @@ export default function ProductList({page, products, imgUrlHeader, imgUrlSystemb
 
 <div className={styles.allProducts}>                 
 
-{availableProducts && showAvailable &&(
+{allProducts.length > 0 && (
         <div className={styles.productDiv}>
-          {availableProducts.map((product) => (
+          {allProducts.map((product) => (
               <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
           ))}
         </div>  
 )}
-
-
-{isComing && showComing && (
-        <div className={styles.productDiv}>
-          {isComing.map((product) => (
-              <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
-          ))}
-        </div>  
-)} 
-
-{notAvailableProducts && showNotAvailable && (
-        <div className={styles.productDiv}>
-          {notAvailableProducts.map((product) => (
-              <ProductComponent key={product.id} img={product.productImgUrl?.url ?? '/placeholderDark.png'} alt={product.acf.produkt_bild_beskrivning} width={product.productImgUrl?.width ?? 400} height={product.productImgUrl?.height ?? 400} info={product.acf.produkt_info} category={product.acf.produkt_kategori} title={product.acf.produkt_titel} releaseDate={product.acf.lanseringsdatum} notAvailable={product.acf.ur_sortiment}/>
-          ))}
-        </div>  
+{allProducts.length === 0 && (
+    <p className={styles.checkABoxMessage}>Kryssa i en kategori för att se produkterna</p>
 )}
 </div>
 

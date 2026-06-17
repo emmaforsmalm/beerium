@@ -63,7 +63,7 @@ export default function ProductComponent ({img, alt, width, height, title, categ
            {show && (
            <p className='productInfo'>{info}</p>            
            )}
-           {show && releaseDate && (
+           {show && releaseDate && isComing && (
             <p className='productDate'>Lanseringsdatum: {parseDate(releaseDate).toLocaleDateString('sv-SE')}</p>
            )}
         </div>

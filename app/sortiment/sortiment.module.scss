@@ -132,6 +132,20 @@ $breathing: var(--font-breathing);
     gap: 5px;       
     }}
 
+    .checkABoxMessage {
+        font-family: $poppins;
+        color: $main-beige;
+        font-size: 90%;
+        text-align: center;
+        background-color: rgb(26, 26, 26);
+        width: 50%;
+        padding: 10px;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
 //Anpassningar till stora skärmar
 @media (min-width: 1500px) {
 
@@ -159,6 +173,10 @@ $breathing: var(--font-breathing);
 
     .productDiv {
             grid-template-columns: repeat(3,1fr);
+                row-gap: 50px;
+    margin-top: 50px;
+    column-gap: 50px;
+    width: fit-content;
     }
 
 }
@@ -221,6 +239,22 @@ $breathing: var(--font-breathing);
         .systembolagetLink img {
             width: 210px;
         }
+    }
+
+    .checkBoxes {
+        flex-direction: column;
+
+        input {
+            transform: scale(1.8);
+            
+        }
+
+        .checkBox {
+            width: 130px;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+    
     }
 }
 
