@@ -4,6 +4,7 @@ import './productComponent.scss';
 import { useState } from "react";
 import Image from 'next/image';
 import { parseDate } from '@/functions/DateFunctions';
+import { Heart } from 'lucide-react';
 
 type ProductProps = {
     img: string;
@@ -15,11 +16,13 @@ type ProductProps = {
     info: string;
     releaseDate?: string;
     notAvailable: boolean;
+    likes: number;
 }
 
-export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable}: ProductProps) {
+export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable, likes}: ProductProps) {
 
     const [show, setShow] = useState(false);
+    const [like, setLike] = useState(false);
 
     const today = new Date();
     today.setHours(0,0,0,0)
@@ -30,13 +33,23 @@ export default function ProductComponent ({img, alt, width, height, title, categ
         setShow(!show);
     }
 
+    const toggleLike = () => {
+        setLike(!like);
+    }
+
     return ( 
         <div> 
                
         <div className='productComponentDiv'>
             {notAvailable && (
             <div className='notAvailable'>
-                 <p>Ur sortiment</p>
+                 <p className='notAvailableText'>Ur sortiment</p>
+                 <div className='likesDiv'>
+                                 <p className='missingProductText'>Saknar du produkten? Lämna en like!</p>
+                <Heart className="heartSymbol" onClick={toggleLike} size={26} fill={like ? "red" : "none"} color="red" />
+                <p className='likeAmount'>{likes}</p>
+
+                </div>
             </div>
             )}  
             {isComing && (

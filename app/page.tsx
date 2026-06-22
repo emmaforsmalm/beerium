@@ -35,10 +35,12 @@ export default async function Home() {
 
 
   return (
-    <div>
+    <div className={styles.startPage}>
       <main>
         <div className={styles.header}>
+
           <Image className={styles.startHeader} src={imgUrlHeader?.url ?? '/defaulthome.webp'} alt={page.acf.header_bild_beskrivning} width={imgUrlHeader?.width ?? 2000} height={imgUrlHeader?.height ?? 400} sizes="100vw" loading="eager" priority={true} fetchPriority="high"/>
+          <Image className={styles.headerLogo} src="/Beerium_Logotyp_Text_vit.png" alt="Beeriums logotyp" width="400" height="400"/>
           <div className={styles.headTextDiv}>
           <h1>{page.acf.sidtitel}</h1>
           <p>{page.acf.sid_tagline}</p>            

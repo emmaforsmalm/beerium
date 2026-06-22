@@ -175,6 +175,7 @@ export interface Produkt {
         produkt_bild_beskrivning: string;
         lanseringsdatum?: string;
         ur_sortiment: boolean;
+        gillamarkeringar: number;
     };
     productImgUrl: Media;
 }

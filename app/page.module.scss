@@ -20,6 +20,7 @@ $estonia: var(--font-estonia);
     width: 100%;
     text-align: center;
     line-height: 0px;
+    overflow: hidden;
 
     h1 {
         font-family: $azoSansBlack;
@@ -55,6 +56,15 @@ $estonia: var(--font-estonia);
     transform: translate(-50%, -50%);
 }
 
+.headerLogo {
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+    width: 40% !important;
+    height: auto !important;
+    opacity: 0.15;
+}
+
 //Design av om oss-sektion på startsidan
 .aboutDiv {
     background-color: $main-beige;
@@ -62,11 +72,12 @@ $estonia: var(--font-estonia);
     align-items: center;
     margin: 0 auto;
     max-width: 800px;
-
     border-radius: 20px;
     margin-bottom: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
+    position: relative;
+    z-index: 2;
 
     .aboutImg {
         padding: 30px;
@@ -481,6 +492,11 @@ margin: 8px;
         margin: 0 auto;
     }
     }
+}
+
+.headerLogo {
+    width: 250px !important;
+    height: auto !important;
 }
 
 .header {
