@@ -45,7 +45,7 @@ export default function ProductComponent ({img, alt, width, height, title, categ
             <div className='notAvailable'>
                  <p className='notAvailableText'>Ur sortiment</p>
                  <div className='likesDiv'>
-                                 <p className='missingProductText'>Saknar du produkten? Lämna en like!</p>
+                                 <p className='missingProductText'>Gilla om du saknar produkten!</p>
                 <Heart className="heartSymbol" onClick={toggleLike} size={26} fill={like ? "red" : "none"} color="red" />
                 <p className='likeAmount'>{likes}</p>
 
