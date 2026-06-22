@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from 'next/image';
 import { parseDate } from '@/functions/DateFunctions';
 import { Heart } from 'lucide-react';
+import { updateLikes } from '@/apiReq/wordpressApi';
 
 type ProductProps = {
     img: string;
@@ -17,12 +18,14 @@ type ProductProps = {
     releaseDate?: string;
     notAvailable: boolean;
     likes: number;
+    productId: number;
 }
 
-export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable, likes}: ProductProps) {
+export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable, likes, productId}: ProductProps) {
 
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
+    const [likeCount, setLikeCount] = useState(likes);
 
     const today = new Date();
     today.setHours(0,0,0,0)
@@ -33,8 +36,22 @@ export default function ProductComponent ({img, alt, width, height, title, categ
         setShow(!show);
     }
 
-    const toggleLike = () => {
-        setLike(!like);
+    const toggleLike = async() => {
+
+        const newLikes = like ? likeCount - 1 : likeCount + 1;
+
+        try {
+        updateLikes(productId, newLikes);
+
+        setLikeCount(newLikes);
+        setLike(!like);       
+        
+        } catch (error) {
+            console.error('Något gick fel:', error);
+            setLikeCount(likeCount);
+            setLike(like);
+        }
+
     }
 
     return ( 
@@ -45,9 +62,9 @@ export default function ProductComponent ({img, alt, width, height, title, categ
             <div className='notAvailable'>
                  <p className='notAvailableText'>Ur sortiment</p>
                  <div className='likesDiv'>
-                                 <p className='missingProductText'>Gilla om du saknar produkten!</p>
+                <p className='missingProductText'>Gilla om du saknar produkten!</p>
                 <Heart className="heartSymbol" onClick={toggleLike} size={26} fill={like ? "red" : "none"} color="red" />
-                <p className='likeAmount'>{likes}</p>
+                <p className='likeAmount'>{likeCount}</p>
 
                 </div>
             </div>

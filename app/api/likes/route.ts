@@ -18,7 +18,9 @@ export async function PATCH(request: Request) {
     }),
   });
 
+  console.log('WP svarade med status:', resp.status);
   const data = await resp.json();
+  console.log('WP data:', data);
 
   if(!resp.ok) {
     throw new Error ("Det gick inte uppdatera gillamarkeringar");

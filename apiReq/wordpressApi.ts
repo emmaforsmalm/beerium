@@ -205,6 +205,23 @@ export const postMember = async (reference:string, memberName: string, email: st
   }
 }
 
+//Uppdatera gillamarkeringar
+export const updateLikes = async (productId: number, likes: number): Promise<void> => {
+
+  const resp = await fetch(`/api/likes`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+},
+    body: JSON.stringify({ productId, likes }),
+  });
+
+  if(!resp.ok) {
+    throw new Error ("Det gick inte att uppdatera gillamarkeringar");
+
+  }
+}
+
 
 //Hämta in en QR-kod
 export const getQr = async(reference:string) => {
