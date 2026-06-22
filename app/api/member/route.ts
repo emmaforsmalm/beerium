@@ -24,7 +24,6 @@ export async function POST(request: Request) {
   });
 
   const data = await resp.json();
-  console.log('Wordpress svar:', resp.status, data)
 
   if(!resp.ok) {
     throw new Error ("Det gick inte att skapa en ny medlem");
