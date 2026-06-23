@@ -24,7 +24,12 @@ type ProductProps = {
 export default function ProductComponent ({img, alt, width, height, title, category, info, releaseDate, notAvailable, likes, productId}: ProductProps) {
 
     const [show, setShow] = useState(false);
-    const [like, setLike] = useState(false);
+    const [like, setLike] = useState(() => {
+        //Läs in like från localStorage
+        if (typeof window === 'undefined') return false;
+        const liked = localStorage.getItem(`liked_${productId}`);
+        return liked !== null ? liked === 'true' : false;
+    });
     const [likeCount, setLikeCount] = useState(likes);
 
     const today = new Date();
@@ -39,17 +44,32 @@ export default function ProductComponent ({img, alt, width, height, title, categ
     const toggleLike = async() => {
 
         const newLikes = like ? likeCount - 1 : likeCount + 1;
+        const newLike = !like;
 
         try {
-        updateLikes(productId, newLikes);
+        await updateLikes(productId, newLikes);
 
         setLikeCount(newLikes);
-        setLike(!like);       
+        setLike(newLike);      
+        
+        //Spara eller ta bort från localStorage
+        if (newLike) {
+            localStorage.setItem(`liked_${productId}`, 'true');
+        } else {
+            localStorage.removeItem(`liked_${productId}`)
+        }
         
         } catch (error) {
             console.error('Något gick fel:', error);
             setLikeCount(likeCount);
             setLike(like);
+
+        //Spara eller ta bort från localStorage
+        if (like) {
+            localStorage.setItem(`liked_${productId}`, 'true');
+        } else {
+            localStorage.removeItem(`liked_${productId}`)
+        }
         }
 
     }
