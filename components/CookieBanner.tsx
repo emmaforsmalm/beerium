@@ -19,11 +19,13 @@ export default function CookieInfo () {
     }, []);
 
     function handleDismiss() {
-        Cookies.set(CookieName, 'yes', {expires: CookieDays});
+        Cookies.set(CookieName, 'yes', {expires: CookieDays, sameSite: 'Lax'});
         setVisible(false);
     }
 
-
+    if(!visible) {
+        return null;
+    }
 
 
     return (

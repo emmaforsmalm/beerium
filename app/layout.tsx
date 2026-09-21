@@ -3,10 +3,15 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import NavComponent from "@/components/NavComponent";
 
+import { cookies } from "next/headers";
+import AgeVerification from "@/components/ageVerification"; 
+import CookieBanner from "@/components/CookieBanner";
+
 import { Poppins, Outfit} from "next/font/google";
 import localFont from 'next/font/local';
 import FooterComponent from "@/components/FooterComponent";
-import CookieBanner from "@/components/CookieBanner";
+
+
 
 const azoSans = localFont({
   src: './fonts/azosansbold.woff2',
@@ -49,13 +54,14 @@ const outfit =  Outfit ({
 });
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
-
+const cookieStore = await cookies();
+const verified = cookieStore.get('age_verified')?.value === 'yes';
 
   return (
     <html lang="sv" className={`${poppins.variable} ${azoSans.variable}  ${outfit.variable} ${breathing.variable} ${azoSansBlack.variable} ${materialSymbols.variable}`}>
@@ -63,12 +69,16 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <body>
+        {verified ? (
         <main>
         <NavComponent />
         {children}
         <CookieBanner/>
         <FooterComponent/>
-        </main>
+        </main>          
+        ) : (
+          <AgeVerification/>
+        )}
       </body>
     </html>
   );
