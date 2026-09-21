@@ -1,0 +1,80 @@
+$main-grey: #292929;
+$main-beige: #F1E9DC;
+$main-orange: #F05A22;
+$main-brown: #723C14;
+$main-green: #8d9a72;
+
+$poppins: var(--font-poppins);
+$comforterBrush: var(--font-comforter-brush);
+$azoSans: var(--font-azo-sans);
+$second-heading: var(--font-outfit);
+
+.ageDiv {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $main-grey;
+    overflow: hidden;
+}
+
+.ageCard {
+    width: 100%;
+    max-width: 500px;
+    width: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: $main-beige;
+    text-align: center; 
+
+    h2 {
+        font-family: $poppins;
+        color: $main-grey;
+    }
+
+    p {
+        font-family: $poppins;
+        color: #5b5142;
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+
+.ageButtonDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button {
+        font-family: $poppins;
+        padding: 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 90%;
+    }
+
+    .confirmButton {
+        background-color: $main-green;
+        border: 1px solid $main-green;
+
+        &:hover {
+            background-color: darken($main-green, 5%);
+            border-color: darken($main-green, 5%);
+        }
+
+    }
+
+    .denyButton {
+        background-color: transparent;
+        border: 1px solid lighten(#5b5142, 30%);
+        color: #5b5142;
+
+        &:hover {
+            border-color: #5b5142;
+            color: #201a12;
+        }
+}
+    
+}

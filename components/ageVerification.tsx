@@ -1,8 +1,10 @@
 'use client'
 
-import './cookieBanner.scss';
-import { useState, useEffect } from "react";
+import './ageVerification.scss';
+import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 const CookieName = 'age_verified';
 const CookieDays = 30;
@@ -10,31 +12,22 @@ const CookieDays = 30;
 
 export default function AgeVerification () {
 
-    const [visible, setVisible] = useState(false);
-    const [denied, setDenied] = useState(false);
+    const router = useRouter();
 
-    useEffect (() => {
-            if (Cookies.get(CookieName) !== 'yes') {
-                setVisible(true)
-        }
-    }, []);
+    const [denied, setDenied] = useState(false);
 
     function handleConfirm() {
         Cookies.set(CookieName, 'yes', {expires: CookieDays, sameSite: 'Lax'});
-        setVisible(false);
+        router.refresh();
     }
 
     function handleDeny() {
         setDenied(true);
     }
 
-    if(!visible) {
-        return null;
-    }
-
-
     return (
         <div className='ageDiv'>
+            <div className='ageCard'>
             {!denied ? (
                 <div>
                     <h2>Är du 20 år eller äldre?</h2>
@@ -42,8 +35,8 @@ export default function AgeVerification () {
                         Den här sidan innehåller information om och marknadsföring av alkoholhaltiga produkter. Du måste vara minst 20 år för att fortsätta.
                     </p>
                     <div className='ageButtonDiv'>
-                        <button onClick={handleConfirm}>Ja, jag är 20 år eller äldre</button>
-                        <button onClick={handleDeny}>Nej</button>
+                        <button className='confirmButton' onClick={handleConfirm}>Ja, jag är 20 år eller äldre</button>
+                        <button className='denyButton' onClick={handleDeny}>Nej</button>
                     </div>
                 </div>
             ) : (
@@ -53,6 +46,6 @@ export default function AgeVerification () {
                 </div>
             )}
 </div>
-
+</div>
     );
 }
