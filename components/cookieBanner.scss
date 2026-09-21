@@ -50,4 +50,14 @@ $main-green: #8d9a72;
         }
 
     }
+
+    a {
+        color: grey;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
 }
