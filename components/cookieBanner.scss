@@ -1,0 +1,53 @@
+$poppins: var(--font-poppins);
+$main-green: #8d9a72;
+
+.cookieBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    color: white;
+    font-family: $poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    p {
+        text-align: center;
+        max-width: 800px;
+        width: 90%;
+        font-size: 95%;
+
+    }
+
+    .cookieButtons {
+       background-color: black;
+
+        button {
+            background-color: black;
+            font-family: $poppins;
+            font-size: 90%;
+            color: white;
+            border: 2px solid white;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: $main-green;
+            color: black;
+        }
+
+        .all {
+            background-color: white;
+            color: black;
+        }
+
+    }
+}

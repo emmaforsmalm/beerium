@@ -154,7 +154,7 @@ export const sendContactForm = async (name: string, email: string, subject: stri
 export const getProducts = async (): Promise<Produkt[]> => {
 
     const resp = await fetch(`${API_URL}/product`, {
-next: {revalidate: 5}
+next: {revalidate: 60}
     });
 
     if(!resp.ok) {

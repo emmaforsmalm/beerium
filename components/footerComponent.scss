@@ -88,6 +88,23 @@ $azoSansBlack: var(--font-azosansblack);
 
 }
 
+.policys {
+
+    margin-top: 20px;
+
+    a {
+        color: grey;
+        text-decoration: none;
+        font-family: $poppins;
+        margin: 15px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+}
+
 @media (max-width: 500px) {
     .footer {
 

@@ -6,6 +6,7 @@ import NavComponent from "@/components/NavComponent";
 import { Poppins, Outfit} from "next/font/google";
 import localFont from 'next/font/local';
 import FooterComponent from "@/components/FooterComponent";
+import CookieBanner from "@/components/CookieBanner";
 
 const azoSans = localFont({
   src: './fonts/azosansbold.woff2',
@@ -65,6 +66,7 @@ export default function RootLayout({
         <main>
         <NavComponent />
         {children}
+        <CookieBanner/>
         <FooterComponent/>
         </main>
       </body>

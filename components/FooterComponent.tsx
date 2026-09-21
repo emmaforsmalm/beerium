@@ -51,5 +51,9 @@ export default async function FooterComponent () {
 
             </div>
         </div>
+        <div className='policys'>
+            <a href='/integritetspolicy'>Integritetspolicy</a>
+            <a href='/cookiepolicy'>Cookiepolicy</a>
+        </div>
     </div>
 )}
