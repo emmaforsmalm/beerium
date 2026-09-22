@@ -78,3 +78,11 @@ $second-heading: var(--font-outfit);
 }
     
 }
+
+@media (max-width: 600px) {
+.ageCard {
+    max-width: 400px;
+    width: 70%;
+
+}
+}
