@@ -30,7 +30,7 @@ export default function CookieInfo () {
 
     return (
         <div className='cookieBanner'>
-                   <p>Vi använder cookies som är nödvändiga för att sidan ska fungera, t.ex. för åldersverifiering och för att hantera gillamarkeringar. <a href='/cookiepolicy'>Läs mer i våran cookiepolicy</a></p> 
+                   <p>Vi använder cookies som är nödvändiga för att sidan ska fungera, t.ex. för åldersverifiering och för att hantera gillamarkeringar. <a href='/cookiepolicy'>Läs mer om integritet och cookies</a></p> 
                    <div className='cookieButtons'>
                    <button className='all' onClick={handleDismiss}>Jag förstår</button>
         </div>
